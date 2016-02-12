@@ -51,6 +51,8 @@ alias mkdir="mkdir -v"
 alias grep='grep --colour=auto'
 alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 
+alias gimme='sudo zypper in'
+
 # KEY-BINDINGS #################################################################
 
 # make home and end work
