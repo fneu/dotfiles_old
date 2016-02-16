@@ -113,3 +113,29 @@ else
 fi
 RPROMPT='%B%F{red}%(?..:()%f%b'  # sad smiley
 
+# VIM GOODNESS #################################################################
+bindkey -v
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+function zle-line-init zle-keymap-select {
+    #VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    VIM_PROMPT="%F{red}"
+    zle reset-prompt
+    if test "$UID" = 0; then
+        PROMPT='%B%F{red}%n%f%b %B%~%b $(git_info)%B${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}❯%b%f '
+    else
+        PROMPT='%B%F{green}%n%f%b %B%~%b $(git_info)%B${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}❯%b%f '
+    fi
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
