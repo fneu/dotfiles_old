@@ -12,7 +12,7 @@ HISTFILE="${ZDOTDIR}/.zsh_history"
 HISTSIZE='10000'
 SAVEHIST="${HISTSIZE}"
 export EDITOR=vim
-export TERM='rxvt-unicode'
+#export TERM='rxvt-unicode'
 
 # OPTIONS ######################################################################
 
@@ -52,6 +52,7 @@ alias grep='grep --colour=auto'
 alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 
 alias gimme='sudo zypper in'
+alias vim='nvim'
 
 # KEY-BINDINGS #################################################################
 
@@ -139,9 +140,5 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
