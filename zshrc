@@ -108,9 +108,9 @@ git_info() {
 # PROMPT #######################################################################
 
 if test "$UID" = 0; then
-    PROMPT='%B%F{red}%(?..[%?] )%n%f%b %B%~%b $(git_info)%B❯%b '
+    PROMPT='%B%F{red}%(?..[%?] )%n%f%b %B%~%b $(git_info)%B>%b '
 else
-    PROMPT='%B%F{red}%(?..[%?] )%f%b%B%F{green}%n%f%b %B%~%b $(git_info)%B❯%b '
+    PROMPT='%B%F{red}%(?..[%?] )%f%b%B%F{green}%n%f%b %B%~%b $(git_info)%B>%b '
 fi
 RPROMPT='%B%F{red}%(?..:()%f%b'  # sad smiley
 
@@ -130,9 +130,9 @@ function zle-line-init zle-keymap-select {
     VIM_PROMPT="%F{red}"
     zle reset-prompt
     if test "$UID" = 0; then
-        PROMPT='%B%F{red}%(?..[%?] )%n%f%b %B%~%b $(git_info)%B${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}❯%b%f '
+        PROMPT='%B%F{red}%(?..[%?] )%n%f%b %B%~%b $(git_info)%B${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}>%b%f '
     else
-        PROMPT='%B%F{red}%(?..[%?] )%f%b%B%F{green}%n%f%b %B%~%b $(git_info)%B${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}❯%b%f '
+        PROMPT='%B%F{red}%(?..[%?] )%f%b%B%F{green}%n%f%b %B%~%b $(git_info)%B${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}>%b%f '
     fi
     zle reset-prompt
 }
