@@ -2,18 +2,21 @@
 
 # BASICS {{{1
 
-autoload -Uz compinit promptinit colors
+autoload -Uz compinit promptinit colors bashcompinit
 compinit
 promptinit
 colors
+bashcompinit
 
 ZDOTDIR=${ZDOTDIR:-${HOME}}
 HISTFILE="${ZDOTDIR}/.zsh_history"
 HISTSIZE='1000000'
 SAVEHIST="${HISTSIZE}"
+
 export EDITOR=nvim
 #export TERM='rxvt-unicode'
 
+eval "$(register-python-argcomplete `which coala`)"
 # OPTIONS {{{1
 
 setopt correctall            # Automagically correct inputs
