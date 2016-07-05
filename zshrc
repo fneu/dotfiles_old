@@ -51,6 +51,7 @@ alias mkdir="mkdir -v"
 alias grep='grep --colour=auto'
 alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 
+alias fuck='sudo !!'
 alias gimme='sudo zypper in'
 alias vim='nvim'
 
@@ -67,12 +68,6 @@ if [[ -x /usr/lib/command-not-found ]] ; then
                 /usr/lib/command-not-found --no-failure-msg -- $1
         }
 fi
-
-# THEFUCK {{{1
-
-# https://github.com/nvbn/thefuck
-test -s ~/.alias && . ~/.alias || true
-eval "$(thefuck --alias fuck)"
 
 # GIT {{{1
 
