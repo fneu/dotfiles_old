@@ -17,6 +17,7 @@ export EDITOR=nvim
 #export TERM='rxvt-unicode'
 
 eval "$(register-python-argcomplete `which coala`)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # OPTIONS {{{1
 
 setopt correctall            # Automagically correct inputs
