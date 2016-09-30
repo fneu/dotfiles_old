@@ -1,0 +1,16 @@
+[user]
+    name = Fabian Neuschmidt
+    email = fabian@neuschmidt.de
+
+[core]
+    editor = nvim
+
+[alias]
+    cam = commit --all --message
+
+[push]
+    ; push only the current branch
+    default = current
+
+[merge]
+    ff = only
