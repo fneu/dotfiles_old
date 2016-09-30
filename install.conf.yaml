@@ -6,7 +6,9 @@
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.config/nvim/init.vim: init.vim
+    ~/.config/nvim/init.vim:
+        create: true
+        path: init.vim
     ~/.zshrc: zshrc
 
 - shell:
