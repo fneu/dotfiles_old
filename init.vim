@@ -49,6 +49,12 @@ call plug#end()
 
 " MISC {{{1
 
+" always keep n lines visible under the cursor
+set scrolloff=1
+
+"show trailing whitespace, tabs
+set list
+
 " split windows in a way so that existing text doesn't move.
 set splitbelow
 set splitright
