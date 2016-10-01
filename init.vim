@@ -1,5 +1,5 @@
 " PLUGINS {{{1
-"
+
 " Install vim-plug if missing:
 let pluginstall=system("[ -e ~/.config/nvim/autoload/plug.vim ] ; echo $?")
 if pluginstall != 0
@@ -38,10 +38,13 @@ Plug 'junegunn/fzf.vim'
 "     ** means left-right alternating alignment around all
 Plug 'junegunn/vim-easy-align'
 
+" colorscheme
+Plug 'justinmk/molokai'
+
 call plug#end()
 
 " MISC {{{1
-"
+
 " stay in terminal mode by default
 augroup terminal
     autocmd!
@@ -49,8 +52,17 @@ augroup terminal
     autocmd BufLeave term://* stopinsert
 augroup END
 
+" LOOK {{{1
+
+" enable true colors
+set termguicolors
+
+syntax on
+set background=dark
+colorscheme molokai
+
 " KEYBINDINGS {{{1
-"
+
 " navigate splits with <A-hjkl>
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
@@ -85,7 +97,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " LEADER BINDINGS {{{1
-"
+
 let mapleader = "\<Space>"
 let maplocalleader = "-"
 
