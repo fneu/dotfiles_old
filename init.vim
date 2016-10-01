@@ -27,6 +27,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "     :Buffers  -> Open buffers
 "     :Helptags -> Help tags
 "     ...       -> ...
+" select with
+"     <C-s> to open below
+"     <C-v> to open right
+"     <C-t> to open in tab
 Plug 'junegunn/fzf.vim'
 
 " automated alignment
@@ -44,6 +48,10 @@ Plug 'justinmk/molokai'
 call plug#end()
 
 " MISC {{{1
+
+" split windows in a way so that existing text doesn't move.
+set splitbelow
+set splitright
 
 " stay in terminal mode by default
 augroup terminal
