@@ -10,6 +10,25 @@ endif
 
 call plug#begin()
 
+" install fzf fuzzy searcher system wide
+" shell commands:
+"     Ctrl-T: paste file to cli
+"     Ctrl-R: paste command from history to cli
+"     Alt-C:  cd into selected directory
+"     '**':   extends to file
+" vim commands:
+"     :FZF <dir>
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" fzf-based commands and mappings
+" vim commands:
+"     :Files    -> Files
+"     :GFiles   -> Git Files
+"     :Buffers  -> Open buffers
+"     :Helptags -> Help tags
+"     ...       -> ...
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 " MISC {{{1
@@ -57,5 +76,6 @@ let mapleader = "\<Space>"
 let maplocalleader = "-"
 
 nnoremap <leader>g <C-]>
+nnoremap <leader>f :Files<CR>
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
