@@ -29,6 +29,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "     ...       -> ...
 Plug 'junegunn/fzf.vim'
 
+" automated alignment
+" 1. `ga` key in visual mode or `ga` followed by motion/object
+" 2. (optional) Enter key to cycle alignment mode (left, right, center)
+" 3.  N-th delimiter (default = 1)
+"     1, 2, -1, -2, ...
+"     * means all
+"     ** means left-right alternating alignment around all
+Plug 'junegunn/vim-easy-align'
+
 call plug#end()
 
 " MISC {{{1
@@ -69,6 +78,11 @@ noremap ä ]
 noremap Ö {
 noremap Ä }
 noremap	ß /
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " LEADER BINDINGS {{{1
 "
