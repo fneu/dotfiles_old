@@ -12,6 +12,15 @@ call plug#begin()
 
 call plug#end()
 
+" MISC {{{1
+"
+" stay in terminal mode by default
+augroup terminal
+    autocmd!
+    autocmd BufWinEnter,WinEnter term://* startinsert
+    autocmd BufLeave term://* stopinsert
+augroup END
+
 " KEYBINDINGS {{{1
 "
 " navigate splits with <A-hjkl>
