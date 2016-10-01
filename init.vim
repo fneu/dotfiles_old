@@ -65,7 +65,6 @@ augroup END
 " enable true colors
 set termguicolors
 
-syntax on
 set background=dark
 colorscheme molokai
 
