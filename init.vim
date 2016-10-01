@@ -103,6 +103,9 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" Use <C-l> to clear the highlighting of :hlsearch
+nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
+
 " LEADER BINDINGS {{{1
 
 let mapleader = "\<Space>"
