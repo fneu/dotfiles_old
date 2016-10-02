@@ -53,18 +53,29 @@ Plug 'justinmk/molokai'
 " automatic python docstring generation
 Plug 'heavenshell/vim-pydocstring'
 
+" python autocompletion and navigation
+Plug 'davidhalter/jedi-vim'
+" don't use these commands:
+let g:jedi#goto_assignments_command = ""
+let g:jedi#goto_definitions_command = ""
+let g:jedi#completions_command = ""
+" use python 3 only:
+let g:jedi#force_py_version = 3
+" leave completeopt and <C-c> as they are
+let g:jedi#auto_vim_configuration = 0
+
 call plug#end()
 
 " INDENTATION {{{1
 
 " number of visual spaces per tab
-set tabstop = 8
+set tabstop=8
 
 " number of spaces inserted by tab
-set softtabstop = 4
+set softtabstop=4
 
 " indent size (<< and >>)
-set shiftwidth = 4
+set shiftwidth=4
 
 " <Tab> inserts spaces
 set expandtab
@@ -141,8 +152,19 @@ nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR
 let mapleader = "\<Space>"
 let maplocalleader = "-"
 
+" follow links
 nnoremap <leader>g <C-]>
+" open fzf and search files
 nnoremap <leader>f :Files<CR>
+" enter docstring or comment in python files
 nmap <silent> <localleader>d <Plug>(pydocstring)diwo
+" goto definition or assignments in python files
+let g:jedi#goto_command = "<localleader>g"
+" show docstring of word under cursor in python files
+let g:jedi#documentation_command = "<localleader>K"
+" circle usages of python variables
+let g:jedi#usages_command = "<localleader>u"
+" rename python variables
+let g:jedi#rename_command = "<localleader>r"
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
