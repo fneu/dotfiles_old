@@ -55,6 +55,21 @@ Plug 'heavenshell/vim-pydocstring'
 
 call plug#end()
 
+" INDENTATION {{{1
+
+" number of visual spaces per tab
+set tabstop = 8
+
+" number of spaces inserted by tab
+set softtabstop = 4
+
+" indent size (<< and >>)
+set shiftwidth = 4
+
+" <Tab> inserts spaces
+set expandtab
+
+
 " UI-Config {{{1
 
 " always keep n lines visible under the cursor
@@ -81,11 +96,10 @@ set hidden
 set relativenumber
 set number
 
-" LOOK {{{1
-
-" enable true colors
+" show true colors in terminal
 set termguicolors
 
+" colorscheme
 set background=dark
 colorscheme molokai
 
