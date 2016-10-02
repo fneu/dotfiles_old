@@ -1,3 +1,5 @@
+" Fabian Neuschmidt
+
 " PLUGINS {{{1
 
 " Install vim-plug if missing:
@@ -10,50 +12,18 @@ endif
 
 call plug#begin()
 
-" install fzf fuzzy searcher system wide
-" shell commands:
-"     Ctrl-T: paste file to cli
-"     Ctrl-R: paste command from history to cli
-"     Alt-C:  cd into selected directory
-"     '**':   extends to file
-" vim commands:
-"     :FZF <dir>
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" fzf-based commands and mappings
-" vim commands:
-"     :Files    -> Files
-"     :GFiles   -> Git Files
-"     :Buffers  -> Open buffers
-"     :Helptags -> Help tags
-"     ...       -> ...
-" select with
-"     <C-s> to open below
-"     <C-v> to open right
-"     <C-t> to open in tab
 Plug 'junegunn/fzf.vim'
 
-" automated alignment
-" 1. `ga` key in visual mode or `ga` followed by motion/object
-" 2. (optional) Enter key to cycle alignment mode (left, right, center)
-" 3.  N-th delimiter (default = 1)
-"     1, 2, -1, -2, ...
-"     * means all
-"     ** means left-right alternating alignment around all
 Plug 'junegunn/vim-easy-align'
-
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" colorscheme
-Plug 'justinmk/molokai'
-
-" automatic python docstring generation
 Plug 'heavenshell/vim-pydocstring'
 
-" python autocompletion and navigation
 Plug 'davidhalter/jedi-vim'
 " don't use these commands:
 let g:jedi#goto_assignments_command = ""
@@ -64,22 +34,20 @@ let g:jedi#force_py_version = 3
 " leave completeopt and <C-c> as they are
 let g:jedi#auto_vim_configuration = 0
 
+Plug 'tpope/vim-fugitive'
+
+Plug 'justinmk/vim-sneak'
+
+Plug 'justinmk/molokai'
+
 call plug#end()
 
 " INDENTATION {{{1
 
-" number of visual spaces per tab
-set tabstop=8
-
-" number of spaces inserted by tab
-set softtabstop=4
-
-" indent size (<< and >>)
-set shiftwidth=4
-
-" <Tab> inserts spaces
-set expandtab
-
+set tabstop=8 " number of visual spaces per tab
+set softtabstop=4 " number of spaces inserted by tab
+set shiftwidth=4 " indent size (<< and >>)
+set expandtab " <Tab> inserts spaces
 
 " UI-Config {{{1
 
