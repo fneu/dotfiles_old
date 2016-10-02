@@ -42,12 +42,20 @@ Plug 'junegunn/fzf.vim'
 "     ** means left-right alternating alignment around all
 Plug 'junegunn/vim-easy-align'
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " colorscheme
 Plug 'justinmk/molokai'
 
+" automatic python docstring generation
+Plug 'heavenshell/vim-pydocstring'
+
 call plug#end()
 
-" MISC {{{1
+" UI-Config {{{1
 
 " always keep n lines visible under the cursor
 set scrolloff=1
@@ -102,12 +110,7 @@ noremap ö [
 noremap ä ]
 noremap Ö {
 noremap Ä }
-noremap	ß /
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+noremap ß /
 
 " Use <C-l> to clear the highlighting of :hlsearch
 nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
@@ -119,5 +122,6 @@ let maplocalleader = "-"
 
 nnoremap <leader>g <C-]>
 nnoremap <leader>f :Files<CR>
+nmap <silent> <localleader>d <Plug>(pydocstring)diwo
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
