@@ -82,6 +82,9 @@ set termguicolors
 set background=dark
 colorscheme molokai
 
+" colorcolumn after 72 and 79 chars
+set colorcolumn=73,80
+
 " KEYBINDINGS {{{1
 
 " navigate splits with <A-hjkl>
