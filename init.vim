@@ -74,6 +74,9 @@ augroup terminal
     autocmd BufLeave term://* stopinsert
 augroup END
 
+" hides buffers instead of closing them - allows to keep unwritten changes
+set hidden
+
 " LOOK {{{1
 
 " enable true colors
