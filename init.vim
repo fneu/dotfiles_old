@@ -77,6 +77,10 @@ augroup END
 " hides buffers instead of closing them - allows to keep unwritten changes
 set hidden
 
+" show relative line numbers as well as the current one
+set relativenumber
+set number
+
 " LOOK {{{1
 
 " enable true colors
