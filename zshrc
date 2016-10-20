@@ -67,9 +67,9 @@ bindkey  "^[[F"   end-of-line
 
 # COMMAND NOT FOUND {{{1
 
-if [[ -x /usr/bin/command-not-found ]] ; then
+if [[ -x /usr/lib/command-not-found ]] ; then
         function command_not_found_handler() {
-                /usr/bin/command-not-found --no-failure-msg -- $1
+                /usr/lib/command-not-found --no-failure-msg -- $1
         }
 fi
 
