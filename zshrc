@@ -67,10 +67,8 @@ bindkey  "^[[F"   end-of-line
 
 # COMMAND NOT FOUND {{{1
 
-if [[ -x /usr/lib/command-not-found ]] ; then
-        function command_not_found_handler() {
-                /usr/lib/command-not-found --no-failure-msg -- $1
-        }
+if test -f /etc/zsh_command_not_found ; then
+            . /etc/zsh_command_not_found
 fi
 
 # GIT {{{1
