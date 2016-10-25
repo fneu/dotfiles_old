@@ -64,6 +64,10 @@ alias vim='nvim'
 # make home and end work
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
+# Rebind the insert key.  I really can't stand what it currently does.
+bindkey '\e[2~' overwrite-mode
+# Rebind the delete key. Again, useless.
+bindkey '\e[3~' delete-char
 
 # COMMAND NOT FOUND {{{1
 
