@@ -127,8 +127,6 @@ let maplocalleader = "-"
 nnoremap <leader>g <C-]>
 " open fzf and search files
 nnoremap <leader>f :Files<CR>
-" enter docstring or comment in python files
-nmap <silent> <localleader>d <Plug>(pydocstring)diwo
 " goto definition or assignments in python files
 let g:jedi#goto_command = "<localleader>g"
 " show docstring of word under cursor in python files
