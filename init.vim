@@ -15,14 +15,14 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'junegunn/fzf.vim'
+" open fzf and search files
+nnoremap <leader>f :Files<CR>
 
 Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-Plug 'heavenshell/vim-pydocstring'
 
 Plug 'davidhalter/jedi-vim'
 " don't use these commands:
@@ -33,6 +33,15 @@ let g:jedi#completions_command = ""
 let g:jedi#force_py_version = 3
 " leave completeopt and <C-c> as they are
 let g:jedi#auto_vim_configuration = 0
+
+" goto definition or assignments in python files
+let g:jedi#goto_command = "<leader>g"
+" show docstring of word under cursor in python files
+let g:jedi#documentation_command = "<leader>d"
+" circle usages of python variables
+let g:jedi#usages_command = "<leader>u"
+" rename python variables
+let g:jedi#rename_command = "<leader>r"
 
 Plug 'tpope/vim-fugitive'
 
@@ -87,6 +96,12 @@ set colorcolumn=73,80
 
 " KEYBINDINGS {{{1
 
+" key used for leader commands
+let mapleader = "\<Space>"
+
+" follow tags
+nnoremap <leader>t <C-]>
+
 " navigate splits with <A-hjkl>
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
@@ -118,22 +133,5 @@ noremap ß /
 " Use <C-l> to clear the highlighting of :hlsearch
 nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 
-" LEADER BINDINGS {{{1
-
-let mapleader = "\<Space>"
-let maplocalleader = "-"
-
-" follow links
-nnoremap <leader>g <C-]>
-" open fzf and search files
-nnoremap <leader>f :Files<CR>
-" goto definition or assignments in python files
-let g:jedi#goto_command = "<localleader>g"
-" show docstring of word under cursor in python files
-let g:jedi#documentation_command = "<localleader>K"
-" circle usages of python variables
-let g:jedi#usages_command = "<localleader>u"
-" rename python variables
-let g:jedi#rename_command = "<localleader>r"
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
