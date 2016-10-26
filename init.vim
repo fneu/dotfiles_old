@@ -1,5 +1,44 @@
 " Fabian Neuschmidt
 
+" KEYBINDINGS {{{1
+
+" key used for leader commands
+let mapleader = "\<Space>"
+
+" follow tags
+nnoremap <leader>t <C-]>
+
+" navigate splits with <A-hjkl>
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+vnoremap <A-h> <C-w>h
+vnoremap <A-j> <C-w>j
+vnoremap <A-k> <C-w>k
+vnoremap <A-l> <C-w>l
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+
+" leave insert mode with jj
+inoremap jj <Esc>
+
+" leave terminal mode with Esc
+" nvim instances in :terminal can exit inset mode with jj 
+tnoremap <Esc> <C-\><C-n>
+
+" adjust for german keyboard layout:
+noremap ö [
+noremap ä ]
+noremap Ö {
+noremap Ä }
+noremap ß /
+
+" Use <C-l> to clear the highlighting of :hlsearch
+nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
+
 " PLUGINS {{{1
 
 " Install vim-plug if missing:
@@ -94,44 +133,12 @@ colorscheme molokai
 " colorcolumn after 72 and 79 chars
 set colorcolumn=73,80
 
-" KEYBINDINGS {{{1
-
-" key used for leader commands
-let mapleader = "\<Space>"
-
-" follow tags
-nnoremap <leader>t <C-]>
-
-" navigate splits with <A-hjkl>
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-vnoremap <A-h> <C-w>h
-vnoremap <A-j> <C-w>j
-vnoremap <A-k> <C-w>k
-vnoremap <A-l> <C-w>l
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-
-" leave terminal mode with jj and Esc
-tnoremap <Esc> <C-\><C-n>
-tnoremap jj <C-\><C-n>
-
-" leave insert mode with jj (and Esc...)
-inoremap jj <Esc>
-
-" adjust for german keyboard layout:
-noremap ö [
-noremap ä ]
-noremap Ö {
-noremap Ä }
-noremap ß /
-
-" Use <C-l> to clear the highlighting of :hlsearch
-nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
-
+" STATUSLINE {{{1
+set statusline=
+set statusline+=%n
+set statusline+=%f
+set statusline+=\ [%{fugitive#head()}%Y%M]
+set statusline+=%=
+set statusline+=[%l,%c]
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
