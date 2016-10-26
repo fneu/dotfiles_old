@@ -150,6 +150,9 @@ augroup overlength
     autocmd BufEnter * match OverLength /\%80v.\+/
 augroup END
 
+" make cursor a pipe when in insert mode:
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 " STATUSLINE {{{1
 set statusline=
 set statusline+=%n
