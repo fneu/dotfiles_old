@@ -130,8 +130,13 @@ set termguicolors
 set background=dark
 colorscheme molokai
 
-" colorcolumn after 72 and 79 chars
-set colorcolumn=73,80
+" color characters after the 79th column red
+augroup overlength
+    autocmd!
+    autocmd BufEnter * highlight OverLength ctermbg=red guibg=#FF0000
+    autocmd BufEnter * match OverLength /\%80v.\+/
+augroup END
+
 
 " STATUSLINE {{{1
 set statusline=
