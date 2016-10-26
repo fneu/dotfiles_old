@@ -119,9 +119,22 @@ augroup END
 " hides buffers instead of closing them - allows to keep unwritten changes
 set hidden
 
-" show relative line numbers as well as the current one
-set relativenumber
+" show line numbers:
 set number
+
+" show relative numbers in active window only
+augroup RelativeNumberOnlyInActiveWindow
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
+    autocmd WinLeave * setlocal norelativenumber
+augroup END
+
+" show cursorline in active window only
+augroup CursorLineOnlyInActiveWindow
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup END
 
 " show true colors in terminal
 set termguicolors
@@ -133,10 +146,9 @@ colorscheme molokai
 " color characters after the 79th column red
 augroup overlength
     autocmd!
-    autocmd BufEnter * highlight OverLength ctermbg=red guibg=#FF0000
+    autocmd BufEnter * highlight OverLength ctermfg=red guifg=#FF0000
     autocmd BufEnter * match OverLength /\%80v.\+/
 augroup END
-
 
 " STATUSLINE {{{1
 set statusline=
