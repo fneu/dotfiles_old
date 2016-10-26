@@ -117,7 +117,7 @@ augroup terminal
 augroup END
 
 " hides buffers instead of closing them - allows to keep unwritten changes
-set hidden
+"set hidden
 
 " show line numbers:
 set number
