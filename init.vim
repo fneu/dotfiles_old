@@ -116,8 +116,8 @@ augroup terminal
     autocmd BufLeave term://* stopinsert
 augroup END
 
-" hides buffers instead of closing them - allows to keep unwritten changes
-"set hidden
+" ask for confirmation if current action has to be confirmed
+set confirm
 
 " show line numbers:
 set number
