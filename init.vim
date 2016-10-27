@@ -153,12 +153,16 @@ augroup END
 " make cursor a pipe when in insert mode:
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-" STATUSLINE {{{1
-set statusline=
-set statusline+=%n
-set statusline+=%f
-set statusline+=\ [%{fugitive#head()}%Y%M]
-set statusline+=%=
-set statusline+=[%l,%c]
+" set statusline
+" switching the colors around looks better (inactive <-> active)
+hi StatusLineNC guibg=#080808 guifg=#455354
+hi StatusLine guibg=#080808 guifg=#808080
+
+set statusline=                                     " empty statusline
+set statusline+=%f                                  " add full file path
+set statusline+=%=                                  " spacer
+set statusline +=%m                                 " modified flag [+]
+set statusline+=%(\ [%{fugitive#head()}%Y%R%W]%)    " git, filetype, RO, PRV
+set statusline+=\ [%(%l,%2.c%)]                     " line no. and column
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
