@@ -57,6 +57,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " open fzf and search files
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 
 Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
