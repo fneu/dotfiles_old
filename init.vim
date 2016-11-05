@@ -95,6 +95,8 @@ Plug 'justinmk/vim-sneak'
 
 Plug 'justinmk/molokai'
 
+" strip trailing whitespace from edited lines
+Plug 'thirtythreeforty/lessspace.vim'
 call plug#end()
 
 " INDENTATION {{{1
