@@ -103,10 +103,11 @@ call plug#end()
 
 " INDENTATION {{{1
 
-set tabstop=8 " number of visual spaces per tab
+set tabstop=8     " number of visual spaces per tab
 set softtabstop=4 " number of spaces inserted by tab
-set shiftwidth=4 " indent size (<< and >>)
-set expandtab " <Tab> inserts spaces
+set shiftwidth=4  " indent size (<< and >>)
+set expandtab     " <Tab> inserts spaces
+set nojoinspaces  " insert only one space after .?! when joining lines
 
 " UI-Config {{{1
 
