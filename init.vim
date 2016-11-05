@@ -65,6 +65,10 @@ nnoremap <silent> <F1> :call CycleList("lnext", "lfirst")<CR>
 nnoremap <silent> <F2> :call CycleList("lprev", "llast")<CR>
 nnoremap <silent> <F3> :call CycleList("cnext", "cfirst")<CR>
 nnoremap <silent> <F4> :call CycleList("cprev", "clast")<CR>
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
 " PLUGINS {{{1
 
 " Install vim-plug if missing:
