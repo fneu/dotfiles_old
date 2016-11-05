@@ -45,6 +45,8 @@ noremap ß /
 nnoremap <silent> <C-l>
     \ :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 
+" Make Y mode like D and C to end of line
+noremap Y y$
 " PLUGINS {{{1
 
 " Install vim-plug if missing:
