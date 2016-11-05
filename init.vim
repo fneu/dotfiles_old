@@ -127,8 +127,8 @@ augroup terminal
     autocmd BufLeave term://* stopinsert
 augroup END
 
-" ask for confirmation if current action has to be confirmed
-set confirm
+" Allow changed buffers in the background
+set hidden
 
 " show line numbers:
 set number
