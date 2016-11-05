@@ -47,6 +47,24 @@ nnoremap <silent> <C-l>
 
 " Make Y mode like D and C to end of line
 noremap Y y$
+
+" Cycle location and quickfix list with F1-F4
+fun! CycleList(nextcom, firstcom)
+    try
+        try
+            execute a:nextcom
+        catch /^Vim\%((\a\+)\)\=:E553/
+            execute a:firstcom
+        catch /^Vim\%((\a\+)\)\=:E776/
+        endtry
+    catch /^Vim\%((\a\+)\)\=:E42/
+    endtry
+endfun
+
+nnoremap <silent> <F1> :call CycleList("lnext", "lfirst")<CR>
+nnoremap <silent> <F2> :call CycleList("lprev", "llast")<CR>
+nnoremap <silent> <F3> :call CycleList("cnext", "cfirst")<CR>
+nnoremap <silent> <F4> :call CycleList("cprev", "clast")<CR>
 " PLUGINS {{{1
 
 " Install vim-plug if missing:
