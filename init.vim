@@ -37,7 +37,8 @@ noremap Ä }
 noremap ß /
 
 " Use <C-l> to clear the highlighting of :hlsearch
-nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
+nnoremap <silent> <C-l>
+    \ :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 
 " PLUGINS {{{1
 
