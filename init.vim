@@ -31,7 +31,7 @@ tnoremap <A-l> <C-\><C-n><C-w>l
 inoremap jj <Esc>
 
 " leave terminal mode with Esc
-" nvim instances in :terminal can exit inset mode with jj 
+" nvim instances in :terminal can exit insert mode with jj
 tnoremap <Esc> <C-\><C-n>
 
 " adjust for german keyboard layout:
@@ -43,7 +43,7 @@ noremap ß /
 
 " Use <C-l> to clear the highlighting of :hlsearch
 nnoremap <silent> <C-l>
-    \ :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
+            \ :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
 
 " Make Y mode like D and C to end of line
 noremap Y y$
