@@ -8,6 +8,11 @@ let mapleader = "\<Space>"
 " follow tags
 nnoremap <leader>t <C-]>
 
+" copy to system clipboard
+nnoremap <leader>y "+y
+" paste from system clipboard
+nnoremap <leader>p "+p
+
 " navigate splits with <A-hjkl>
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
