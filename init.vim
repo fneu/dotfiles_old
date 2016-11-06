@@ -180,8 +180,9 @@ colorscheme molokai
 " color characters after the 79th column red
 augroup overlength
     autocmd!
-    autocmd BufEnter * highlight OverLength ctermfg=red guifg=#FF0000
-    autocmd BufEnter * match OverLength /\%80v.\+/
+    autocmd BufEnter *.md,*.py,*.vim
+                \ highlight OverLength ctermfg=red guifg=#FF0000
+                \ | match OverLength /\%80v.\+/
 augroup END
 
 " make cursor a pipe when in insert mode:
