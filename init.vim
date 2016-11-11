@@ -122,10 +122,12 @@ Plug 'justinmk/molokai'
 " strip trailing whitespace from edited lines
 Plug 'thirtythreeforty/lessspace.vim'
 
+Plug 'ClaudiaJ/lightline-molokai.vim'
+
 " lightline for nicer statusline
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
+    \ 'colorscheme': 'molokai',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
