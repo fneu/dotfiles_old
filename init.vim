@@ -156,6 +156,11 @@ set nojoinspaces  " insert only one space after .?! when joining lines
 
 " UI-Config {{{1
 
+set wildignore+=.git                     " Version control
+set wildignore+=*.aux,*.out,*.toc        " LaTeX intermediate files
+set wildignore+=*.jpg,*.jpeg,*.png,*.svg " binary images
+set wildignore+=*.pyc                    " Python bytecode
+
 " always keep n lines visible under the cursor
 set scrolloff=1
 
