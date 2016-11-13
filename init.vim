@@ -1,6 +1,158 @@
-" Fabian Neuschmidt
+" Neovim configuration by Fabian Neuschmidt
 
-" KEYBINDINGS {{{1
+" -----------------------------------------------------------------------------
+" PLUGINS
+" -----------------------------------------------------------------------------
+
+" install vim-plug if missing:
+let pluginstall=system("[ -e ~/.config/nvim/autoload/plug.vim ] ; echo $?")
+if pluginstall != 0
+    call system("curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+    so ~/.config/nvim/autoload/plug.vim
+endif
+
+" add plugins
+call plug#begin()
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'               " fzf integration for vim
+
+Plug 'justinmk/molokai'               " colorscheme
+Plug 'itchyny/lightline.vim'          " light beautiful status line
+Plug 'ClaudiaJ/lightline-molokai.vim' " colorscheme for lightline
+
+Plug 'justinmk/vim-sneak'             " precision movement with s<char><char>
+Plug 'junegunn/vim-easy-align'        " horizontal alignment of lines
+Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
+
+Plug 'davidhalter/jedi-vim'           " python autocompletion and more
+
+Plug 'tpope/vim-fugitive'             " git integration
+call plug#end()
+
+" -----------------------------------------------------------------------------
+" MOVING AROUND, SEARCHING AND PATTERNS
+" -----------------------------------------------------------------------------
+
+set ignorecase " ignore case when using a search pattern
+set smartcase  " override 'ignorecase' when pattern has upper case characters
+
+" -----------------------------------------------------------------------------
+" DISPLAYING TEXT
+" -----------------------------------------------------------------------------
+
+set scrolloff=3 " number of screen lines to show around the cursor
+set list        " show tabs and trailing whitespace
+set number      " show the line number for each line
+
+" show the relative line number for each line in the active buffer only
+augroup RelativeNumberOnlyInActiveWindow
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
+    autocmd WinLeave * setlocal norelativenumber
+augroup END
+
+" -----------------------------------------------------------------------------
+" SYNTAX, HIGHLIGHTING AND SPELLING
+" -----------------------------------------------------------------------------
+
+set background=dark " the background color brightness
+set termguicolors   " use GUI colors for the terminal
+
+colorscheme molokai " use colorscheme molokai
+
+" show cursorline in active window only
+augroup CursorLineOnlyInActiveWindow
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup END
+
+" color characters after the 79th column red
+augroup overlength
+    autocmd!
+    autocmd BufEnter *.md,*.py,*.vim
+                \ highlight OverLength ctermfg=red guifg=#FF0000
+                \ | match OverLength /\%80v.\+/
+augroup END
+
+" -----------------------------------------------------------------------------
+" MULTIPLE WINDOWS
+" -----------------------------------------------------------------------------
+
+set hidden     " don't unload a buffer when no longer shown in a window
+set splitbelow " a new window is put below the current one
+set splitright " a new window is put right of the current one
+
+" -----------------------------------------------------------------------------
+" MESSAGES AND INFO
+" -----------------------------------------------------------------------------
+
+set showcmd    " show (partial) command keys in the status line
+set noshowmode " don't display the current mode in the status line
+set confirm    " start a dialog when a command fails
+
+" -----------------------------------------------------------------------------
+" EDITING TEXT
+" -----------------------------------------------------------------------------
+
+set nojoinspaces " don't use two spaces after '.' when joining a line
+
+" -----------------------------------------------------------------------------
+" TABS AND INDENTING
+" -----------------------------------------------------------------------------
+
+set tabstop=8     " number of spaces a <Tab> in the text stands for
+set shiftwidth=4  " number of spaces used for each step of (auto)indent
+set softtabstop=4 " if non-zero, number of spaces to insert for a <Tab>
+set shiftround    " round to 'shiftwidth' for "<<" and ">>"
+set expandtab     " expand <Tab> to spaces in Insert mode
+
+" -----------------------------------------------------------------------------
+" DIFF MODE
+" -----------------------------------------------------------------------------
+
+set diffopt+=vertical " start diff mode with vertical splits by default
+
+" -----------------------------------------------------------------------------
+" READING AND WRITING FILES
+" -----------------------------------------------------------------------------
+
+set autoread " automatically read a file when it was modified outside of Vim
+
+" -----------------------------------------------------------------------------
+" COMMAND LINE EDITING
+" -----------------------------------------------------------------------------
+
+" list of patterns to ignore files for file name completion
+set wildignore+=.git                     " Version control
+set wildignore+=*.aux,*.out,*.toc        " LaTeX intermediate files
+set wildignore+=*.jpg,*.jpeg,*.png,*.svg " binary images
+set wildignore+=*.pyc                    " Python bytecode
+
+" -----------------------------------------------------------------------------
+" VARIOUS
+" -----------------------------------------------------------------------------
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " make cursor a pipe when in insert mode
+
+" stay in terminal mode by default
+augroup terminal
+    autocmd!
+    autocmd BufWinEnter,WinEnter term://* startinsert
+    autocmd BufLeave term://* stopinsert
+augroup END
+
+" -----------------------------------------------------------------------------
+" KEYMAPS
+" -----------------------------------------------------------------------------
+
+" leave insert mode with jj
+inoremap jj <Esc>
+
+" leave terminal mode with Esc
+" nvim instances in :terminal can exit insert mode with jj
+tnoremap <Esc> <C-\><C-n>
 
 " key used for leader commands
 let mapleader = "\<Space>"
@@ -8,10 +160,24 @@ let mapleader = "\<Space>"
 " follow tags
 nnoremap <leader>t <C-]>
 
-" copy to system clipboard
+" copy to and from system clipboard
 nnoremap <leader>y "+y
-" paste from system clipboard
 nnoremap <leader>p "+p
+
+" fzf.vim mappings to fuzzy search files or buffers
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
+" Make Y move like D and C to end of line
+noremap Y y$
 
 " navigate splits with <A-hjkl>
 nnoremap <A-h> <C-w>h
@@ -27,13 +193,6 @@ tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
 
-" leave insert mode with jj
-inoremap jj <Esc>
-
-" leave terminal mode with Esc
-" nvim instances in :terminal can exit insert mode with jj
-tnoremap <Esc> <C-\><C-n>
-
 " adjust for german keyboard layout:
 noremap ö [
 noremap ä ]
@@ -44,9 +203,6 @@ noremap ß /
 " Use <C-l> to clear the highlighting of :hlsearch
 nnoremap <silent> <C-l>
             \ :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
-
-" Make Y move like D and C to end of line
-noremap Y y$
 
 " Cycle location and quickfix list with F1-F4
 fun! CycleList(nextcom, firstcom)
@@ -66,66 +222,22 @@ nnoremap <silent> <F2> :call CycleList("cprev", "clast")<CR>
 nnoremap <silent> <F3> :call CycleList("lnext", "lfirst")<CR>
 nnoremap <silent> <F4> :call CycleList("lprev", "llast")<CR>
 
-" highlight last inserted text
-nnoremap gV `[v`]
+" -----------------------------------------------------------------------------
+" PLUGIN OPTIONS
+" -----------------------------------------------------------------------------
 
-" PLUGINS {{{1
-
-" Install vim-plug if missing:
-let pluginstall=system("[ -e ~/.config/nvim/autoload/plug.vim ] ; echo $?")
-if pluginstall != 0
-    call system("curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
-    so ~/.config/nvim/autoload/plug.vim
-endif
-
-call plug#begin()
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-Plug 'junegunn/fzf.vim'
-" open fzf and search files
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>b :Buffers<CR>
-
-Plug 'junegunn/vim-easy-align'
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-Plug 'davidhalter/jedi-vim'
-" don't use these commands:
+" davidhalter/jedi-vim
 let g:jedi#goto_assignments_command = ""
 let g:jedi#goto_definitions_command = ""
 let g:jedi#completions_command = ""
-" use python 3 only:
 let g:jedi#force_py_version = 3
-" leave completeopt and <C-c> as they are
 let g:jedi#auto_vim_configuration = 0
-
-" goto definition or assignments in python files
 let g:jedi#goto_command = "<leader>g"
-" show docstring of word under cursor in python files
 let g:jedi#documentation_command = "<leader>d"
-" circle usages of python variables
 let g:jedi#usages_command = "<leader>u"
-" rename python variables
 let g:jedi#rename_command = "<leader>r"
 
-Plug 'tpope/vim-fugitive'
-
-Plug 'justinmk/vim-sneak'
-
-Plug 'justinmk/molokai'
-
-" strip trailing whitespace from edited lines
-Plug 'thirtythreeforty/lessspace.vim'
-
-Plug 'ClaudiaJ/lightline-molokai.vim'
-
-" lightline for nicer statusline
-Plug 'itchyny/lightline.vim'
+" itchyny/lightline.vim
 let g:lightline = {
     \ 'colorscheme': 'molokai',
     \ 'active': {
@@ -145,77 +257,3 @@ let g:lightline = {
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' }
     \ }
-
-call plug#end()
-
-" INDENTATION {{{1
-
-set tabstop=8     " number of visual spaces per tab
-set softtabstop=4 " number of spaces inserted by tab
-set shiftwidth=4  " indent size (<< and >>)
-set expandtab     " <Tab> inserts spaces
-set nojoinspaces  " insert only one space after .?! when joining lines
-
-" UI-Config {{{1
-
-set wildignore+=.git                     " Version control
-set wildignore+=*.aux,*.out,*.toc        " LaTeX intermediate files
-set wildignore+=*.jpg,*.jpeg,*.png,*.svg " binary images
-set wildignore+=*.pyc                    " Python bytecode
-
-" always keep n lines visible under the cursor
-set scrolloff=1
-
-"show trailing whitespace, tabs
-set list
-
-" split windows in a way so that existing text doesn't move.
-set splitbelow
-set splitright
-
-" stay in terminal mode by default
-augroup terminal
-    autocmd!
-    autocmd BufWinEnter,WinEnter term://* startinsert
-    autocmd BufLeave term://* stopinsert
-augroup END
-
-" Allow changed buffers in the background
-set hidden
-
-" show line numbers:
-set number
-
-" show relative numbers in active window only
-augroup RelativeNumberOnlyInActiveWindow
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
-    autocmd WinLeave * setlocal norelativenumber
-augroup END
-
-" show cursorline in active window only
-augroup CursorLineOnlyInActiveWindow
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-augroup END
-
-" show true colors in terminal
-set termguicolors
-
-" colorscheme
-set background=dark
-colorscheme molokai
-
-" color characters after the 79th column red
-augroup overlength
-    autocmd!
-    autocmd BufEnter *.md,*.py,*.vim
-                \ highlight OverLength ctermfg=red guifg=#FF0000
-                \ | match OverLength /\%80v.\+/
-augroup END
-
-" make cursor a pipe when in insert mode:
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
-" vim:foldmethod=marker:foldlevel=0:foldenable
