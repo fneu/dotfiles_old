@@ -78,6 +78,14 @@ augroup overlength
                 \ | match OverLength /\%80v.\+/
 augroup END
 
+" enable spelling for certain file types
+augroup spelling
+    autocmd!
+    autocmd BufNewFile,BufRead,BufEnter *.tex setlocal spell spelllang=de_de
+    autocmd BufNewFile,BufRead,BufEnter README* setlocal spell spelllang=en_us
+    autocmd BufNewFile,BufRead,BufEnter COMMIT* setlocal spell spelllang=en_us
+augroup END
+
 " -----------------------------------------------------------------------------
 " MULTIPLE WINDOWS
 " -----------------------------------------------------------------------------
