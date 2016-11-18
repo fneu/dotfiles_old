@@ -28,6 +28,8 @@ Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
 Plug 'davidhalter/jedi-vim'           " python autocompletion and more
 
 Plug 'tpope/vim-fugitive'             " git integration
+
+Plug 'lervag/vimtex'                  " LaTeX tools
 call plug#end()
 
 " -----------------------------------------------------------------------------
