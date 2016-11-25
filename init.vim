@@ -260,3 +260,38 @@ let g:lightline = {
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' }
     \ }
+
+" lervag/vimtex
+let g:tex_flavor = 'latex' " don't detect files with .tex suffix as plaintex
+
+" use <leader> instead of <localleader> for mappings.
+nnoremap <leader>li <plug>(vimtex-info)
+nnoremap <leader>lI <plug>(vimtex-info-full)
+nnoremap <leader>lt <plug>(vimtex-toc-open)
+nnoremap <leader>lT <plug>(vimtex-toc-toggle)
+nnoremap <leader>ly <plug>(vimtex-labels-open)
+nnoremap <leader>lY <plug>(vimtex-labels-toggle)
+nnoremap <leader>lv <plug>(vimtex-view)
+nnoremap <leader>lr <plug>(vimtex-reverse-search)
+nnoremap <leader>ll <plug>(vimtex-compile-toggle)
+nnoremap <leader>lL <plug>(vimtex-compile-selected)
+vnoremap <leader>lL <plug>(vimtex-compile-selected)
+nnoremap <leader>lk <plug>(vimtex-stop)
+nnoremap <leader>lK <plug>(vimtex-stop-all)
+nnoremap <leader>le <plug>(vimtex-errors)
+nnoremap <leader>lo <plug>(vimtex-compile-output)
+nnoremap <leader>lg <plug>(vimtex-status)
+nnoremap <leader>lG <plug>(vimtex-status-all)
+nnoremap <leader>lc <plug>(vimtex-clean)
+nnoremap <leader>lC <plug>(vimtex-clean-full)
+nnoremap <leader>lm <plug>(vimtex-imaps-list)
+nnoremap <leader>lx <plug>(vimtex-reload)
+nnoremap <leader>ls <plug>(vimtex-toggle-main)
+
+" Use Okular as a viewer, supports forward search:
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
+
+" Set the following in Okular for backward search:
+" Settings > Editor > Custom Text Editor: nvr --remote-silent %f -c %l
