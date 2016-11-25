@@ -47,13 +47,6 @@ set scrolloff=3 " number of screen lines to show around the cursor
 set list        " show tabs and trailing whitespace
 set number      " show the line number for each line
 
-" show the relative line number for each line in the active buffer only
-augroup RelativeNumberOnlyInActiveWindow
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
-    autocmd WinLeave * setlocal norelativenumber
-augroup END
-
 " -----------------------------------------------------------------------------
 " SYNTAX, HIGHLIGHTING AND SPELLING
 " -----------------------------------------------------------------------------
