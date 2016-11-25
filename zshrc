@@ -17,7 +17,14 @@ export EDITOR=nvim
 #export TERM='rxvt-unicode'
 
 eval "$(register-python-argcomplete `which coala`)"
+
+# FZF {{{
+
+# Use FZF for ** completion and CTRL-R history search
+# add '-L' to default command to follow symlinks
+export FZF_DEFAULT_COMMAND="find -L * -path '*/\.*' -prune -o -type f -print -o -type l -print 2> /dev/null"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # OPTIONS {{{1
 
 setopt correctall            # Automagically correct inputs
