@@ -264,6 +264,7 @@ let g:lightline = {
 
 " lervag/vimtex
 let g:tex_flavor = 'latex' " don't detect files with .tex suffix as plaintex
+let g:vimtex_latexmk_progname = 'nvr'
 
 " use <leader> instead of <localleader> for mappings.
 nmap <leader>li <plug>(vimtex-info)
