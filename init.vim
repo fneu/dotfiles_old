@@ -182,13 +182,12 @@ let mapleader = "\<Space>"
 " follow tags
 nnoremap <leader>t <C-]>
 
-" copy to and from system clipboard
-nnoremap <leader>y "+y
-nnoremap <leader>p "+p
-
 " fzf.vim mappings to fuzzy search files or buffers
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>f :Files ~<CR>
 nnoremap <leader>b :Buffers<CR>
+
+" fugitive mappings
+nnoremap <leader>gs :Gstatus<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -282,10 +281,10 @@ let g:jedi#goto_definitions_command = ""
 let g:jedi#completions_command = ""
 let g:jedi#force_py_version = 3
 let g:jedi#auto_vim_configuration = 0
-let g:jedi#goto_command = "<leader>g"
-let g:jedi#documentation_command = "<leader>d"
-let g:jedi#usages_command = "<leader>u"
-let g:jedi#rename_command = "<leader>r"
+let g:jedi#goto_command = "<leader>jg"
+let g:jedi#documentation_command = "<leader>jd"
+let g:jedi#usages_command = "<leader>ju"
+let g:jedi#rename_command = "<leader>jr"
 let g:jedi#completions_enabled = 0 " let deoplete do the completing
 let g:jedi#show_call_signatures_delay=0 " instantly show params
 
