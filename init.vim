@@ -12,25 +12,38 @@ if pluginstall != 0
     so ~/.config/nvim/autoload/plug.vim
 endif
 
-" add plugins
 call plug#begin()
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'               " fzf integration for vim
 
+" Visuals
 Plug 'justinmk/molokai'               " colorscheme
 Plug 'itchyny/lightline.vim'          " light beautiful status line
 Plug 'ClaudiaJ/lightline-molokai.vim' " colorscheme for lightline
 
+" Tools
+Plug 'junegunn/fzf',                  " fuzzy file search
+    \ { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'               " fzf integration for vim
+Plug 'tpope/vim-fugitive'             " git integration
+Plug 'tpope/vim-commentary'           " comment stuff out with gcc / gc<motion>
 Plug 'justinmk/vim-sneak'             " precision movement with s<char><char>
 Plug 'junegunn/vim-easy-align'        " horizontal alignment of lines
 Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
+Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 
-Plug 'davidhalter/jedi-vim'           " python autocompletion and more
-
-Plug 'tpope/vim-fugitive'             " git integration
-Plug 'tpope/vim-commentary'           " comment stuff out with gcc / gc<motion>
-
+" Languages
+Plug 'davidhalter/jedi-vim'           " functions for editing python
 Plug 'lervag/vimtex'                  " LaTeX tools
+
+" Completion
+Plug 'ervandew/supertab'              " Use Tab for completion
+Plug 'Shougo/deoplete.nvim',          " Async completion framework
+    \ { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'            " Python completions for deoplete
+
+" Snippets
+Plug 'Shougo/neosnippet'              " Snippet framework
+Plug 'Shougo/neosnippet-snippets'     " Default snippets
+
 call plug#end()
 
 " -----------------------------------------------------------------------------
@@ -102,6 +115,7 @@ set confirm    " start a dialog when a command fails
 " EDITING TEXT
 " -----------------------------------------------------------------------------
 
+set completeopt=menu
 set nojoinspaces " don't use two spaces after '.' when joining a line
 
 " -----------------------------------------------------------------------------
@@ -234,7 +248,35 @@ nnoremap <silent> <F4> :call CycleList("lprev", "llast")<CR>
 " PLUGIN OPTIONS
 " -----------------------------------------------------------------------------
 
-" davidhalter/jedi-vim
+"SUPERTAB
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+"DEOPLETE
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#python_path = 'python3'
+
+" Use vimtexs omni completion for tex files
+if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.tex = '\\(?:'
+    \ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+    \ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+    \ . '|hyperref\s*\[[^]]*'
+    \ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+    \ . '|(?:include(?:only)?|input)\s*\{[^}]*'
+    \ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+    \ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
+    \ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
+    \ .')'
+
+" NEOSNIPPET
+imap <C-j>     <Plug>(neosnippet_expand_or_jump)
+smap <C-j>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-j>     <Plug>(neosnippet_expand_target)
+
+
+" JEDI-VIM
 let g:jedi#goto_assignments_command = ""
 let g:jedi#goto_definitions_command = ""
 let g:jedi#completions_command = ""
@@ -244,8 +286,10 @@ let g:jedi#goto_command = "<leader>g"
 let g:jedi#documentation_command = "<leader>d"
 let g:jedi#usages_command = "<leader>u"
 let g:jedi#rename_command = "<leader>r"
+let g:jedi#completions_enabled = 0 " let deoplete do the completing
+let g:jedi#show_call_signatures_delay=0 " instantly show params
 
-" itchyny/lightline.vim
+" LIGHTLINE
 let g:lightline = {
     \ 'colorscheme': 'molokai',
     \ 'active': {
@@ -266,7 +310,7 @@ let g:lightline = {
     \ 'subseparator': { 'left': '', 'right': '' }
     \ }
 
-" lervag/vimtex
+" VIMTEX
 let g:tex_flavor = 'latex' " don't detect files with .tex suffix as plaintex
 let g:vimtex_latexmk_progname = 'nvr'
 
