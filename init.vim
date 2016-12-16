@@ -41,8 +41,8 @@ Plug 'Shougo/deoplete.nvim',          " Async completion framework
 Plug 'zchee/deoplete-jedi'            " Python completions for deoplete
 
 " Snippets
-Plug 'Shougo/neosnippet'              " Snippet framework
-Plug 'Shougo/neosnippet-snippets'     " Default snippets
+Plug 'SirVer/ultisnips'               " Snippet engine
+Plug 'honza/vim-snippets'             " Default snippets
 
 call plug#end()
 
@@ -269,10 +269,11 @@ let g:deoplete#omni#input_patterns.tex = '\\(?:'
     \ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
     \ .')'
 
-" NEOSNIPPET
-imap <C-j>     <Plug>(neosnippet_expand_or_jump)
-smap <C-j>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-j>     <Plug>(neosnippet_expand_target)
+" ULTISNIPS
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:ultisnips_python_style="sphinx"
 
 
 " JEDI-VIM
