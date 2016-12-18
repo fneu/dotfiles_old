@@ -44,6 +44,9 @@ Plug 'zchee/deoplete-jedi'            " Python completions for deoplete
 Plug 'SirVer/ultisnips'               " Snippet engine
 Plug 'honza/vim-snippets'             " Default snippets
 
+" Linting
+Plug 'w0rp/ale'                       " run async linters while editing
+
 call plug#end()
 
 " -----------------------------------------------------------------------------
@@ -287,6 +290,7 @@ let g:jedi#documentation_command = "<leader>jd"
 let g:jedi#usages_command = "<leader>ju"
 let g:jedi#rename_command = "<leader>jr"
 let g:jedi#completions_enabled = 0 " let deoplete do the completing
+let g:jedi#show_call_signatures = 2 " show call signatures in command line
 let g:jedi#show_call_signatures_delay=0 " instantly show params
 
 " LIGHTLINE
@@ -345,3 +349,13 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 
 " Set the following in Okular for backward search:
 " Settings > Editor > Custom Text Editor: nvr --remote-silent %f -c %l
+
+" ALE
+nmap <silent> <leader>lk <Plug>(ale_previous_wrap)
+nmap <silent> <leader>lj <Plug>(ale_next_wrap)
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+hi ALEErrorSign guifg=#F92672 guibg=#232526
+hi ALEWarningSign guifg=#7E8E91 guibg=#232526
+
+
