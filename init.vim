@@ -358,4 +358,12 @@ let g:ale_sign_warning = ''
 hi ALEErrorSign guifg=#F92672 guibg=#232526
 hi ALEWarningSign guifg=#7E8E91 guibg=#232526
 
+" CODI
 
+" use Python3
+let g:codi#interpreters = {
+    \ 'python': {
+        \ 'bin': 'python3',
+        \ 'prompt': '^\(>>>\|\.\.\.\) ',
+        \ },
+    \ }
