@@ -249,10 +249,12 @@ nnoremap <silent> <F4> :call CycleList("lprev", "llast")<CR>
 " PLUGIN OPTIONS
 " -----------------------------------------------------------------------------
 
-"SUPERTAB
+" SUPERTAB -------------------------------------------------------------------
+
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-"DEOPLETE
+" DEOPLETE -------------------------------------------------------------------
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#python_path = 'python3'
 
@@ -271,14 +273,16 @@ let g:deoplete#omni#input_patterns.tex = '\\(?:'
     \ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
     \ .')'
 
-" ULTISNIPS
+" ULTISNIPS ------------------------------------------------------------------
+
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:ultisnips_python_style="sphinx"
 
 
-" JEDI-VIM
+" JEDI-VIM -------------------------------------------------------------------
+
 let g:jedi#goto_assignments_command = ""
 let g:jedi#goto_definitions_command = ""
 let g:jedi#completions_command = ""
@@ -292,7 +296,8 @@ let g:jedi#completions_enabled = 0 " let deoplete do the completing
 let g:jedi#show_call_signatures = 2 " show call signatures in command line
 let g:jedi#show_call_signatures_delay=0 " instantly show params
 
-" LIGHTLINE
+" LIGHTLINE ------------------------------------------------------------------
+
 let g:lightline = {
     \ 'colorscheme': 'molokai',
     \ 'active': {
@@ -313,7 +318,8 @@ let g:lightline = {
     \ 'subseparator': { 'left': '', 'right': '' }
     \ }
 
-" VIMTEX
+" VIMTEX ---------------------------------------------------------------------
+
 let g:tex_flavor = 'latex' " don't detect files with .tex suffix as plaintex
 let g:vimtex_latexmk_progname = 'nvr'
 
@@ -349,7 +355,8 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 " Set the following in Okular for backward search:
 " Settings > Editor > Custom Text Editor: nvr --remote-silent %f -c %l
 
-" ALE
+" ALE ------------------------------------------------------------------------
+
 nmap <silent> <leader>lk <Plug>(ale_previous_wrap)
 nmap <silent> <leader>lj <Plug>(ale_next_wrap)
 let g:ale_sign_error = ''
@@ -357,7 +364,7 @@ let g:ale_sign_warning = ''
 hi ALEErrorSign guifg=#F92672 guibg=#232526
 hi ALEWarningSign guifg=#7E8E91 guibg=#232526
 
-" CODI
+" CODI -----------------------------------------------------------------------
 
 " use Python3
 let g:codi#interpreters = {
