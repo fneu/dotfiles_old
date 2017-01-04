@@ -217,11 +217,11 @@ tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
 
 " adjust for german keyboard layout:
-noremap ö [
-noremap ä ]
-noremap Ö {
-noremap Ä }
-noremap ß /
+nmap ö [
+nmap ä ]
+nmap Ö {
+nmap Ä }
+nmap ß /
 
 " Use <C-l> to clear the highlighting of :hlsearch
 nnoremap <silent> <C-l>
