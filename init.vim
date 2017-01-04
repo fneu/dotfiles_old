@@ -189,7 +189,7 @@ nnoremap <leader>f :Files ~<CR>
 nnoremap <leader>b :Buffers<CR>
 
 " fugitive mappings
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>g :Gstatus<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
