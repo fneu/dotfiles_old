@@ -147,8 +147,6 @@ set autoread " automatically read a file when it was modified outside of Vim
 " COMMAND LINE EDITING
 " -----------------------------------------------------------------------------
 
-set wildmode=longest:full,full " complete longest match, then cycle matches
-
 " list of patterns to ignore files for file name completion
 set wildignore+=.git                     " Version control
 set wildignore+=*.aux,*.out,*.toc        " LaTeX intermediate files
