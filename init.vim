@@ -31,7 +31,6 @@ Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
 Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 
 " Languages
-Plug 'davidhalter/jedi-vim'           " functions for editing python
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 conform indenting
 Plug 'lervag/vimtex'                  " LaTeX tools
 
@@ -280,22 +279,6 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:ultisnips_python_style="sphinx"
-
-
-" JEDI-VIM -------------------------------------------------------------------
-
-let g:jedi#goto_assignments_command = ""
-let g:jedi#goto_definitions_command = ""
-let g:jedi#completions_command = ""
-let g:jedi#force_py_version = 3
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#goto_command = "<leader>jg"
-let g:jedi#documentation_command = "<leader>jk"
-let g:jedi#usages_command = "<leader>ju"
-let g:jedi#rename_command = "<leader>jr"
-let g:jedi#completions_enabled = 0 " let deoplete do the completing
-let g:jedi#show_call_signatures = 2 " show call signatures in command line
-let g:jedi#show_call_signatures_delay=0 " instantly show params
 
 " LIGHTLINE ------------------------------------------------------------------
 
