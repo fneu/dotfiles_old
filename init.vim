@@ -60,11 +60,12 @@ set smartcase  " override 'ignorecase' when pattern has upper case characters
 " DISPLAYING TEXT
 " -----------------------------------------------------------------------------
 
-set scrolloff=3       " number of screen lines to show around the cursor
-set fillchars=vert:\│ " show a continuous line for vsplits
-set list              " show tabs and trailing whitespace
-set number            " show the line number (for the current line)
-set relativenumber    " show relative line numbers for each line
+set scrolloff=3        " number of screen lines to show around the cursor
+set fillchars=vert:\│  " show a continuous line for vsplits
+set list               " show tabs and trailing whitespace
+set number             " show the line number (for the current line)
+set relativenumber     " show relative line numbers for each line
+set inccommand=nosplit " show live preview of substitutions
 
 " -----------------------------------------------------------------------------
 " SYNTAX, HIGHLIGHTING AND SPELLING
