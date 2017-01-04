@@ -32,6 +32,7 @@ Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 
 " Languages
 Plug 'davidhalter/jedi-vim'           " functions for editing python
+Plug 'hynek/vim-python-pep8-indent'   " PEP8 conform indenting
 Plug 'lervag/vimtex'                  " LaTeX tools
 
 " Completion
@@ -84,12 +85,12 @@ augroup CursorLineOnlyInActiveWindow
 augroup END
 
 " color characters after the 79th column red
-augroup overlength
-    autocmd!
-    autocmd BufEnter *.md,*.py,*.vim
-                \ highlight OverLength ctermfg=red guifg=#FF0000
-                \ | match OverLength /\%80v.\+/
-augroup END
+" augroup overlength
+"     autocmd!
+"     autocmd BufEnter *.md,*.py,*.vim
+"                 \ highlight OverLength ctermfg=red guifg=#FF0000
+"                 \ | match OverLength /\%80v.\+/
+" augroup END
 
 " enable spelling for certain file types
 augroup spelling
@@ -289,7 +290,7 @@ let g:jedi#completions_command = ""
 let g:jedi#force_py_version = 3
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#goto_command = "<leader>jg"
-let g:jedi#documentation_command = "<leader>jd"
+let g:jedi#documentation_command = "<leader>jk"
 let g:jedi#usages_command = "<leader>ju"
 let g:jedi#rename_command = "<leader>jr"
 let g:jedi#completions_enabled = 0 " let deoplete do the completing
