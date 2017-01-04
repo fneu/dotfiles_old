@@ -341,8 +341,8 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 
 " ALE ------------------------------------------------------------------------
 
-nmap <silent> <leader>lk <Plug>(ale_previous_wrap)
-nmap <silent> <leader>lj <Plug>(ale_next_wrap)
+nmap <silent> ]l <Plug>(ale_next_wrap)
+nmap <silent> [l <Plug>(ale_previous_wrap)
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 hi ALEErrorSign guifg=#F92672 guibg=#232526
