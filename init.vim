@@ -47,6 +47,9 @@ Plug 'honza/vim-snippets'             " Default snippets
 " Linting
 Plug 'w0rp/ale'                       " run async linters while editing
 
+" Tags
+Plug 'ludovicchabant/vim-gutentags'   " automatic tag management
+
 call plug#end()
 
 " -----------------------------------------------------------------------------
