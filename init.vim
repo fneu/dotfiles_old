@@ -87,12 +87,12 @@ augroup CursorLineOnlyInActiveWindow
 augroup END
 
 " color characters after the 79th column red
-" augroup overlength
-"     autocmd!
-"     autocmd BufEnter *.md,*.py,*.vim
-"                 \ highlight OverLength ctermfg=red guifg=#FF0000
-"                 \ | match OverLength /\%80v.\+/
-" augroup END
+augroup overlength
+    autocmd!
+    autocmd BufEnter *.md,*.py,*.vim
+                \ highlight OverLength ctermfg=red guifg=#FF0000
+                \ | match OverLength /\%80v.\+/
+augroup END
 
 " enable spelling for certain file types
 augroup spelling
