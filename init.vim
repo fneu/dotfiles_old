@@ -192,6 +192,15 @@ nnoremap <leader>d <C-w>}
 nnoremap <leader>f :Files <CR>
 nnoremap <leader>b :Buffers<CR>
 
+" Show highlighting group for current word
+nmap <leader>h :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 " fugitive mappings
 nnoremap <leader>g :Gstatus<CR>
 
