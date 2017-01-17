@@ -189,7 +189,7 @@ nnoremap <leader>t <C-]>
 nnoremap <leader>d <C-w>}
 
 " fzf.vim mappings to fuzzy search files or buffers
-nnoremap <leader>f :Files ~<CR>
+nnoremap <leader>f :Files <CR>
 nnoremap <leader>b :Buffers<CR>
 
 " fugitive mappings
