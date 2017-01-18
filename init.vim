@@ -16,7 +16,9 @@ call plug#begin()
 
 " Visuals
 Plug 'justinmk/molokai'               " colorscheme
-Plug 'itchyny/lightline.vim'          " light beautiful status line
+Plug 'mhartington/oceanic-next'       " colorscheme
+Plug 'fneu/edge'                      " colorscheme
+"Plug 'itchyny/lightline.vim'          " light beautiful status line
 Plug 'ClaudiaJ/lightline-molokai.vim' " colorscheme for lightline
 
 " Tools
@@ -77,7 +79,7 @@ set inccommand=nosplit " show live preview of substitutions
 set background=dark " the background color brightness
 set termguicolors   " use GUI colors for the terminal
 
-colorscheme molokai " use colorscheme molokai
+colorscheme edge
 
 " show cursorline in active window only
 augroup CursorLineOnlyInActiveWindow
@@ -358,8 +360,8 @@ nmap <silent> ]l <Plug>(ale_next_wrap)
 nmap <silent> [l <Plug>(ale_previous_wrap)
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
-hi ALEErrorSign guifg=#F92672 guibg=#232526
-hi ALEWarningSign guifg=#7E8E91 guibg=#232526
+"hi ALEErrorSign guifg=#F92672 guibg=#232526
+"hi ALEWarningSign guifg=#7E8E91 guibg=#232526
 
 " CODI -----------------------------------------------------------------------
 
