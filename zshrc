@@ -66,6 +66,8 @@ alias fuck='sudo !!'
 alias gimme='sudo zypper in'
 alias vim='nvim'
 
+alias gm2='. ~/.venvs/gm2/bin/activate'
+
 # KEY-BINDINGS {{{1
 
 # make home and end work
