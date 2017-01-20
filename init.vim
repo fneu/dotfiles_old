@@ -17,7 +17,7 @@ call plug#begin()
 " Visuals
 Plug 'justinmk/molokai'               " colorscheme
 Plug 'mhartington/oceanic-next'       " colorscheme
-Plug 'fneu/edge'                      " colorscheme
+"Plug 'fneu/edge'                      " colorscheme
 "Plug 'itchyny/lightline.vim'          " light beautiful status line
 Plug 'ClaudiaJ/lightline-molokai.vim' " colorscheme for lightline
 
@@ -88,13 +88,13 @@ augroup CursorLineOnlyInActiveWindow
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
-" color characters after the 79th column red
-augroup overlength
-    autocmd!
-    autocmd BufEnter *.md,*.py,*.vim
-                \ highlight OverLength ctermfg=red guifg=#FF0000
-                \ | match OverLength /\%80v.\+/
-augroup END
+" " color characters after the 79th column red
+" augroup overlength
+"     autocmd!
+"     autocmd BufEnter *.md,*.py,*.vim
+"                 \ highlight OverLength ctermfg=red guifg=#FF0000
+"                 \ | match OverLength /\%80v.\+/
+" augroup END
 
 " enable spelling for certain file types
 augroup spelling
@@ -137,6 +137,11 @@ set softtabstop=4 " if non-zero, number of spaces to insert for a <Tab>
 set shiftround    " round to 'shiftwidth' for "<<" and ">>"
 set expandtab     " expand <Tab> to spaces in Insert mode
 
+augroup IndentExceptions
+    autocmd!
+    autocmd filetype css,javascript setlocal shiftwidth=8
+    autocmd filetype css,javascript setlocal noexpandtab
+augroup END
 " -----------------------------------------------------------------------------
 " DIFF MODE
 " -----------------------------------------------------------------------------
