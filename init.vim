@@ -18,8 +18,7 @@ call plug#begin()
 Plug 'justinmk/molokai'               " colorscheme
 Plug 'mhartington/oceanic-next'       " colorscheme
 "Plug 'fneu/edge'                      " colorscheme
-"Plug 'itchyny/lightline.vim'          " light beautiful status line
-Plug 'ClaudiaJ/lightline-molokai.vim' " colorscheme for lightline
+Plug 'itchyny/lightline.vim'          " light beautiful status line
 
 " Tools
 Plug 'junegunn/fzf',                  " fuzzy file search
@@ -35,6 +34,7 @@ Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 " Languages
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 conform indenting
 Plug 'lervag/vimtex'                  " LaTeX tools
+Plug 'sheerun/vim-polyglot'           " Syntax and stuff for several languages
 
 " Completion
 Plug 'ervandew/supertab'              " Use Tab for completion
@@ -303,7 +303,7 @@ let g:ultisnips_python_style="sphinx"
 " LIGHTLINE ------------------------------------------------------------------
 
 let g:lightline = {
-    \ 'colorscheme': 'molokai',
+    \ 'colorscheme': 'edge',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
