@@ -13,6 +13,9 @@
     ~/.config/nvim/after/syntax/python.vim:
         create: true
         path: python.vim
+    ~/.config/nvim/autoload/lightline/colorscheme/edge.vim:
+        create: true
+        path: lightline-edge.vim
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
