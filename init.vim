@@ -34,7 +34,7 @@ Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 " Languages
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 conform indenting
 Plug 'lervag/vimtex'                  " LaTeX tools
-Plug 'sheerun/vim-polyglot'           " Syntax and stuff for several languages
+" Plug 'sheerun/vim-polyglot'           " Syntax and stuff for several languages
 
 " Completion
 Plug 'ervandew/supertab'              " Use Tab for completion
