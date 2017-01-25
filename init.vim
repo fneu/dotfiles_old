@@ -17,7 +17,7 @@ call plug#begin()
 " Visuals
 Plug 'justinmk/molokai'               " colorscheme
 Plug 'mhartington/oceanic-next'       " colorscheme
-"Plug 'fneu/edge'                      " colorscheme
+"Plug 'fneu/breezy'                   " colorscheme
 Plug 'itchyny/lightline.vim'          " light beautiful status line
 
 " Tools
@@ -34,7 +34,6 @@ Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 " Languages
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 conform indenting
 Plug 'lervag/vimtex'                  " LaTeX tools
-" Plug 'sheerun/vim-polyglot'           " Syntax and stuff for several languages
 
 " Completion
 Plug 'ervandew/supertab'              " Use Tab for completion
@@ -82,7 +81,7 @@ set termguicolors   " use GUI colors for the terminal
 
 let python_highlight_all = 1 "use all python highlighting options
 
-colorscheme edge
+colorscheme breezy
 
 " show cursorline in active window only
 augroup CursorLineOnlyInActiveWindow
@@ -306,7 +305,7 @@ let g:ultisnips_python_style="sphinx"
 " LIGHTLINE ------------------------------------------------------------------
 
 let g:lightline = {
-    \ 'colorscheme': 'edge',
+    \ 'colorscheme': 'breezy',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
