@@ -199,6 +199,7 @@ nnoremap <leader>d <C-w>}
 
 " fzf.vim mappings to fuzzy search files or buffers
 nnoremap <leader>f :Files <CR>
+nnoremap <leader><S-f> :Files ~<CR>
 nnoremap <leader>b :Buffers<CR>
 
 " Show highlighting group for current word
