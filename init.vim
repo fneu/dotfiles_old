@@ -34,6 +34,7 @@ Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 " Languages
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 conform indenting
 Plug 'lervag/vimtex'                  " LaTeX tools
+Plug 'HerringtonDarkholme/yats.vim'   " TypeScript Syntax
 
 " Completion
 Plug 'ervandew/supertab'              " Use Tab for completion
@@ -141,8 +142,8 @@ set expandtab     " expand <Tab> to spaces in Insert mode
 
 augroup IndentExceptions
     autocmd!
-    autocmd filetype css,javascript setlocal shiftwidth=8
-    autocmd filetype css,javascript setlocal noexpandtab
+    autocmd filetype typescript,html,css setlocal shiftwidth=2
+    autocmd filetype typescript,html,css setlocal softtabstop=2
 augroup END
 " -----------------------------------------------------------------------------
 " DIFF MODE
