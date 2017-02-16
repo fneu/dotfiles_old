@@ -5,10 +5,10 @@
 " -----------------------------------------------------------------------------
 
 " install vim-plug if missing:
-let pluginstall=system("[ -e ~/.config/nvim/autoload/plug.vim ] ; echo $?")
-if pluginstall != 0
-    call system("curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+let g:pluginstall=system('[ -e ~/.config/nvim/autoload/plug.vim ] ; echo $?')
+if g:pluginstall != 0
+    call system('curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
     so ~/.config/nvim/autoload/plug.vim
 endif
 
@@ -18,7 +18,7 @@ call plug#begin()
 Plug 'justinmk/molokai'               " colorscheme
 Plug 'mhartington/oceanic-next'       " colorscheme
 "Plug 'fneu/breezy'                   " colorscheme
-Plug 'itchyny/lightline.vim'          " light beautiful status line
+Plug 'vim-airline/vim-airline'        " statusline plugin
 
 " Tools
 Plug 'junegunn/fzf',                  " fuzzy file search
@@ -32,9 +32,11 @@ Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
 Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 
 " Languages
-Plug 'hynek/vim-python-pep8-indent'   " PEP8 conform indenting
-Plug 'lervag/vimtex'                  " LaTeX tools
-Plug 'HerringtonDarkholme/yats.vim'   " TypeScript Syntax
+Plug 'hynek/vim-python-pep8-indent'        " PEP8 conform indenting
+Plug 'lervag/vimtex'                       " LaTeX tools
+Plug 'HerringtonDarkholme/yats.vim'        " TypeScript Syntax
+Plug 'https://github.com/othree/html5.vim' " Html5 Syntax
+Plug 'https://github.com/othree/yajs.vim'  " JavaScript Syntax
 
 " Completion
 Plug 'ervandew/supertab'              " Use Tab for completion
@@ -80,9 +82,9 @@ set background=dark " the background color brightness
 set termguicolors   " use GUI colors for the terminal
 
 
-let python_highlight_all = 1 "use all python highlighting options
+let g:python_highlight_all = 1 "use all python highlighting options
 
-colorscheme breezy
+colorscheme OceanicNext
 
 " show cursorline in active window only
 augroup CursorLineOnlyInActiveWindow
@@ -192,7 +194,7 @@ inoremap jj <Esc>
 tnoremap <Esc> <C-\><C-n>
 
 " key used for leader commands
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 " follow tags
 nnoremap <leader>t <C-]>
@@ -206,10 +208,10 @@ nnoremap <leader>b :Buffers<CR>
 " Show highlighting group for current word
 nmap <leader>h :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-    if !exists("*synstack")
+    if !exists('*synstack')
         return
     endif
-    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, ''name")')
 endfunc
 
 " fugitive mappings
@@ -275,7 +277,7 @@ nnoremap <silent> <F4> :call CycleList("lprev", "llast")<CR>
 
 " SUPERTAB -------------------------------------------------------------------
 
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " DEOPLETE -------------------------------------------------------------------
 
@@ -299,32 +301,48 @@ let g:deoplete#omni#input_patterns.tex = '\\(?:'
 
 " ULTISNIPS ------------------------------------------------------------------
 
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:ultisnips_python_style="sphinx"
+let g:UltiSnipsExpandTrigger='<C-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+let g:ultisnips_python_style='sphinx'
 
 " LIGHTLINE ------------------------------------------------------------------
 
-let g:lightline = {
-    \ 'colorscheme': 'breezy',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component': {
-    \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
-    \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-    \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-    \ },
-    \ 'component_visible_condition': {
-    \   'readonly': '(&filetype!="help"&& &readonly)',
-    \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-    \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-    \ },
-    \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '', 'right': '' }
-    \ }
+" let g:lightline = {
+"     \ 'colorscheme': 'breezy',
+"     \ 'active': {
+"     \   'left': [ [ 'mode', 'paste' ],
+"     \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+"     \ },
+"     \ 'component': {
+"     \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
+"     \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+"     \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+"     \ },
+"     \ 'component_visible_condition': {
+"     \   'readonly': '(&filetype!="help"&& &readonly)',
+"     \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+"     \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+"     \ },
+"     \ 'separator': { 'left': '', 'right': '' },
+"     \ 'subseparator': { 'left': '', 'right': '' }
+"     \ }
+
+
+" AIRLINE --------------------------------------------------------------------
+
+let g:airline_theme='oceanicnext'
+" powerline symbols
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " VIMTEX ---------------------------------------------------------------------
 
@@ -381,3 +399,4 @@ let g:codi#interpreters = {
         \ 'prompt': '^\(>>>\|\.\.\.\) ',
         \ },
     \ }
+
