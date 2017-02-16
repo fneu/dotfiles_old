@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " Neovim configuration by Fabian Neuschmidt
 
 " -----------------------------------------------------------------------------
@@ -189,7 +190,7 @@ augroup END
 " leave insert mode with jj
 inoremap jj <Esc>
 
-" leave terminal mode with Esc
+" leave terminal mode with Esic
 " nvim instances in :terminal can exit insert mode with jj
 tnoremap <Esc> <C-\><C-n>
 
@@ -211,7 +212,7 @@ function! <SID>SynStack()
     if !exists('*synstack')
         return
     endif
-    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, ''name")')
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, ''name'')')
 endfunc
 
 " fugitive mappings
@@ -387,8 +388,8 @@ nmap <silent> ]l <Plug>(ale_next_wrap)
 nmap <silent> [l <Plug>(ale_previous_wrap)
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
-"hi ALEErrorSign guifg=#F92672 guibg=#232526
-"hi ALEWarningSign guifg=#7E8E91 guibg=#232526
+hi ALEErrorSign guifg=#ec5f67 guibg=#343d46
+hi ALEWarningSign guifg=#fac863 guibg=#343d46
 
 " CODI -----------------------------------------------------------------------
 
@@ -399,4 +400,3 @@ let g:codi#interpreters = {
         \ 'prompt': '^\(>>>\|\.\.\.\) ',
         \ },
     \ }
-
