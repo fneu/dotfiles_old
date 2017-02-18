@@ -412,3 +412,14 @@ let g:codi#interpreters = {
         \ 'prompt': '^\(>>>\|\.\.\.\) ',
         \ },
     \ }
+
+" FZF ------------------------------------------------------------------------
+"run fzf in current window
+let g:fzf_layout = { 'window': 'enew' }
+
+" quit fzf with <esc>
+augroup fzf
+    autocmd!
+    autocmd FileType fzf tnoremap <nowait><buffer> <esc> <c-g>
+augroup END
+
