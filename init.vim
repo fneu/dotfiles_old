@@ -400,8 +400,8 @@ nmap <silent> ]l <Plug>(ale_next_wrap)
 nmap <silent> [l <Plug>(ale_previous_wrap)
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '!'
-hi ALEErrorSign guifg=#ec5f67 guibg=#343d46
-hi ALEWarningSign guifg=#fac863 guibg=#343d46
+hi link ALEErrorSign NeomakeErrorSign
+hi link ALEWarningSign NeomakeWarningSign
 
 " CODI -----------------------------------------------------------------------
 
