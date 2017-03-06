@@ -47,6 +47,7 @@ Plug 'ervandew/supertab'              " Use Tab for completion
 Plug 'Shougo/deoplete.nvim',          " Async completion framework
     \ { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'            " Python completions for deoplete
+Plug 'mhartington/nvim-typescript'    " TypeScript completions for deoplete
 
 " Snippets
 Plug 'SirVer/ultisnips'               " Snippet engine
