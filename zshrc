@@ -14,6 +14,7 @@ HISTSIZE='1000000'
 SAVEHIST="${HISTSIZE}"
 
 export EDITOR=nvim
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 #export TERM='rxvt-unicode'
 
 eval "$(register-python-argcomplete `which coala`)"
