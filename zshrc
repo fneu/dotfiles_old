@@ -14,7 +14,6 @@ HISTSIZE='1000000'
 SAVEHIST="${HISTSIZE}"
 
 export EDITOR=nvim
-export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 #export TERM='rxvt-unicode'
 
 eval "$(register-python-argcomplete `which coala`)"
@@ -53,6 +52,7 @@ zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*:descriptions' format '%U%F{green}%d%f%u'
 
 # ALIASES {{{1
+alias narrow='NVIM_LISTEN_ADDRESS=/tmp/nvimarrow nvim ~/Dokumente/Studium/smart-arrow/main.tex'
 
 alias cp='cp -iv'
 alias mv='mv -iv'
