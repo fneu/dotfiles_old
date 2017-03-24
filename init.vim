@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'             " git integration
 Plug 'tpope/vim-commentary'           " comment stuff out with gcc / gc<motion>
 Plug 'tpope/vim-surround'             " cs, ds, ys(s), v_S surroundings
 Plug 'tpope/vim-repeat'               " make repeat and surround repeatable
+Plug 'tpope/vim-vinegar'              " netrw improvements
 Plug 'justinmk/vim-sneak'             " precision movement with s<char><char>
 Plug 'junegunn/vim-easy-align'        " horizontal alignment of lines
 Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
