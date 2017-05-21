@@ -106,18 +106,17 @@ git_info() {
         else
             echo -n $UNMERGED
         fi
-        echo -n " "
         echo -n `git branch | grep '* ' | sed 's/..//'`
-        echo -n " %f "
+        echo -n " %f"
     fi
 }
 
 # PROMPT {{{1
 
 if test "$UID" = 0; then
-    PROMPT='%B%F{red}%(?..[%?] )%n%f%b %B%~%b $(git_info)%B>%b '
+    PROMPT='%B%F{red}%(?..[%?])%n%f%b %B%~%b $(git_info)%B>%b '
 else
-    PROMPT='%B%F{red}%(?..[%?] )%f%b %B%~%b $(git_info)%B>%b '
+    PROMPT='%B%F{red}%(?..[%?])%f%b %B%~%b $(git_info)%B>%b '
 fi
 RPROMPT='%B%F{red}%(?..:()%f%b'  # sad smiley
 
