@@ -16,7 +16,7 @@ SAVEHIST="${HISTSIZE}"
 export EDITOR=nvim
 #export TERM='rxvt-unicode'
 
-eval "$(register-python-argcomplete `which coala`)"
+eval "$(register-python-argcomplete coala)"
 
 # FZF {{{
 
@@ -52,8 +52,6 @@ zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*:descriptions' format '%U%F{green}%d%f%u'
 
 # ALIASES {{{1
-alias narrow='NVIM_LISTEN_ADDRESS=/tmp/nvimarrow nvim ~/Dokumente/Studium/smart-arrow/main.tex'
-
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
@@ -65,9 +63,7 @@ alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 
 alias fuck='sudo !!'
 alias gimme='sudo zypper in'
-alias vim='nvim'
-
-alias gm2='. ~/.venvs/gm2/bin/activate'
+alias update='sudo zypper dup --no-allow-vendor-change'
 
 # KEY-BINDINGS {{{1
 
@@ -110,7 +106,7 @@ git_info() {
         else
             echo -n $UNMERGED
         fi
-        echo -n "⎇"
+        echo -n " "
         echo -n `git branch | grep '* ' | sed 's/..//'`
         echo -n " %f "
     fi
@@ -121,7 +117,7 @@ git_info() {
 if test "$UID" = 0; then
     PROMPT='%B%F{red}%(?..[%?] )%n%f%b %B%~%b $(git_info)%B>%b '
 else
-    PROMPT='%B%F{red}%(?..[%?] )%f%b%B%F{green}%n%f%b %B%~%b $(git_info)%B>%b '
+    PROMPT='%B%F{red}%(?..[%?] )%f%b %B%~%b $(git_info)%B>%b '
 fi
 RPROMPT='%B%F{red}%(?..:()%f%b'  # sad smiley
 
