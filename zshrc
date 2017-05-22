@@ -66,6 +66,10 @@ alias fuck='sudo !!'
 alias gimme='sudo zypper in'
 alias update='sudo zypper dup --no-allow-vendor-change'
 
+#devel GitMate:
+alias backend='cd ~/devel/gitmate-2 && ./init.sh'
+alias frontend='cd ~/devel/gitmate-2-frontend && ng serve'
+
 # KEY-BINDINGS {{{1
 
 # make home and end work
