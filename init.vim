@@ -202,6 +202,26 @@ tnoremap <Esc> <C-\><C-n>
 " key used for leader commands
 let g:mapleader = "\<Space>"
 
+" move lines
+" https://www.reddit.com/r/vim/comments/6ckkxu/slug/dhvjiio
+nnoremap <silent> <leader>k :<C-u>move-2<CR>==
+nnoremap <silent> <leader>j :<C-u>move+<CR>==
+xnoremap <silent> <leader>k :move-2<CR>gv=gv
+xnoremap <silent> <leader>j :move'>+<CR>gv=gv
+
+" Search for selected text, forwards or backwards.
+" http://vim.wikia.com/wiki/Search_for_visually_selected_text
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
 " follow tags
 nnoremap <leader>t <C-]>
 nnoremap <leader>d <C-w>}
