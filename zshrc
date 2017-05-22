@@ -14,6 +14,7 @@ HISTSIZE='1000000'
 SAVEHIST="${HISTSIZE}"
 
 export EDITOR=nvim
+export PATH=$PATH:/home/fabian/bin/ngrok
 #export TERM='rxvt-unicode'
 
 eval "$(register-python-argcomplete coala)"
