@@ -120,6 +120,8 @@ git_info() {
 
 if test "$UID" = 0; then
     PROMPT='%B%F{red}%(?..[%?])%n%f%b %B%~%b $(git_info)%B>%b '
+elif [ $(hostname) = "moon" ]; then
+    PROMPT='%B%F{red}%(?..[%?])%f%b %F{yellow}%B%~%f%b $(git_info)%B>%b '
 else
     PROMPT='%B%F{red}%(?..[%?])%f%b %B%~%b $(git_info)%B>%b '
 fi
