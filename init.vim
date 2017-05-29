@@ -22,8 +22,7 @@ Plug 'mhartington/oceanic-next'       " colorscheme
 Plug 'vim-airline/vim-airline'        " statusline plugin
 
 " Tools
-Plug 'junegunn/fzf',                  " fuzzy file search
-    \ { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'               " fzf integration for vim
 Plug 'tpope/vim-fugitive'             " git integration
 Plug 'tpope/vim-commentary'           " comment stuff out with gcc / gc<motion>
