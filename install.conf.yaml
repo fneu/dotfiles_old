@@ -10,6 +10,7 @@
         create: true
         path: init.vim
     ~/.zshrc: zshrc
+    ~/.ctags: ctags
     ~/.config/nvim/after/syntax/python.vim:
         create: true
         path: python.vim
