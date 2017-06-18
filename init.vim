@@ -34,6 +34,7 @@ Plug 'junegunn/vim-easy-align'        " horizontal alignment of lines
 Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
 Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 Plug 'jiangmiao/auto-pairs'           " brackets/ parens / quote pairs
+Plug 'wincent/terminus'               " Terminal integration
 
 " Languages
 Plug 'hynek/vim-python-pep8-indent'        " PEP8 conform indenting
