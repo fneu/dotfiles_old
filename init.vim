@@ -67,13 +67,13 @@ set inccommand=nosplit " show live preview of substitutions
 " SYNTAX, HIGHLIGHTING AND SPELLING
 " -----------------------------------------------------------------------------
 
-set background=dark " the background color brightness
+set background=light " the background color brightness
 set termguicolors   " use GUI colors for the terminal
 
 
 let g:python_highlight_all = 1 "use all python highlighting options
 
-colorscheme OceanicNext
+colorscheme breezy
 
 " show cursorline in active window only
 augroup CursorLineOnlyInActiveWindow
