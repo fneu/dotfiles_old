@@ -252,6 +252,16 @@ nmap ä ]
 nmap Ö {
 nmap Ä }
 nmap ß /
+xmap ö [
+xmap ä ]
+xmap Ö {
+xmap Ä }
+xmap ß /
+omap ö [
+omap ä ]
+omap Ö {
+omap Ä }
+omap ß /
 
 " Use <C-l> to clear the highlighting of :hlsearch
 nnoremap <silent> <C-l>
