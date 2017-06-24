@@ -212,12 +212,17 @@ vnoremap <silent> # :<C-U>
 
 " follow tags
 nnoremap <leader>t <C-]>
-nnoremap <leader>d <C-w>}
+nnoremap <leader><S-t> <C-w>}
 
 " fzf.vim mappings to fuzzy search files or buffers
 nnoremap <leader>f :Files <CR>
 nnoremap <leader><S-f> :Files ~<CR>
 nnoremap <leader>b :Buffers<CR>
+
+" Go to Definition/usages
+nnoremap <leader>u :YcmCompleter GoToReferences<CR>
+nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
+nnoremap <leader><S-d> :YcmCompleter GoToDeclaration<CR>
 
 " Show highlighting group for current word
 nmap <leader>h :call <SID>SynStack()<CR>
