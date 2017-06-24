@@ -16,10 +16,7 @@ endif
 call plug#begin()
 
 " Visuals
-Plug 'justinmk/molokai'               " colorscheme
-Plug 'mhartington/oceanic-next'       " colorscheme
-"Plug 'fneu/breezy'                   " colorscheme
-Plug 'vim-airline/vim-airline'        " statusline plugin
+Plug 'fneu/breezy'                   " colorscheme
 
 " Tools
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -29,8 +26,6 @@ Plug 'tpope/vim-commentary'           " comment stuff out with gcc / gc<motion>
 Plug 'tpope/vim-surround'             " cs, ds, ys(s), v_S surroundings
 Plug 'tpope/vim-repeat'               " make repeat and surround repeatable
 Plug 'tpope/vim-vinegar'              " netrw improvements
-Plug 'justinmk/vim-sneak'             " precision movement with s<char><char>
-Plug 'junegunn/vim-easy-align'        " horizontal alignment of lines
 Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
 Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 Plug 'jiangmiao/auto-pairs'           " brackets/ parens / quote pairs
@@ -38,21 +33,9 @@ Plug 'wincent/terminus'               " Terminal integration
 
 " Languages
 Plug 'hynek/vim-python-pep8-indent'        " PEP8 conform indenting
-Plug 'lervag/vimtex'                       " LaTeX tools
 Plug 'HerringtonDarkholme/yats.vim'        " TypeScript Syntax
 Plug 'https://github.com/othree/html5.vim' " Html5 Syntax
 Plug 'https://github.com/othree/yajs.vim'  " JavaScript Syntax
-
-" Completion
-Plug 'ervandew/supertab'              " Use Tab for completion
-Plug 'Shougo/deoplete.nvim',          " Async completion framework
-    \ { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'            " Python completions for deoplete
-Plug 'mhartington/nvim-typescript'    " TypeScript completions for deoplete
-
-" Snippets
-Plug 'SirVer/ultisnips'               " Snippet engine
-Plug 'honza/vim-snippets'             " Default snippets
 
 " Linting
 Plug 'w0rp/ale'                       " run async linters while editing
@@ -301,37 +284,6 @@ nnoremap <silent> <F4> :call CycleList("lprev", "llast")<CR>
 " PLUGIN OPTIONS
 " -----------------------------------------------------------------------------
 
-" SUPERTAB -------------------------------------------------------------------
-
-let g:SuperTabDefaultCompletionType = '<c-n>'
-
-" DEOPLETE -------------------------------------------------------------------
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#python_path = 'python3'
-
-" Use vimtexs omni completion for tex files
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.tex = '\\(?:'
-    \ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
-    \ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
-    \ . '|hyperref\s*\[[^]]*'
-    \ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-    \ . '|(?:include(?:only)?|input)\s*\{[^}]*'
-    \ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-    \ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
-    \ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
-    \ .')'
-
-" ULTISNIPS ------------------------------------------------------------------
-
-let g:UltiSnipsExpandTrigger='<C-j>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-let g:ultisnips_python_style='sphinx'
-
 " LIGHTLINE ------------------------------------------------------------------
 
 " let g:lightline = {
@@ -354,72 +306,8 @@ let g:ultisnips_python_style='sphinx'
 "     \ 'subseparator': { 'left': '', 'right': '' }
 "     \ }
 
-
-" AIRLINE --------------------------------------------------------------------
-
-let g:airline_theme='oceanicnext'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline_skip_empty_sections = 1
-" powerline symbols
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" VIMTEX ---------------------------------------------------------------------
-
-let g:tex_flavor = 'latex' " don't detect files with .tex suffix as plaintex
-let g:vimtex_latexmk_progname = 'nvr'
-
-" use <leader> instead of <localleader> for mappings.
-nmap <leader>li <plug>(vimtex-info)
-nmap <leader>lI <plug>(vimtex-info-full)
-nmap <leader>lt <plug>(vimtex-toc-open)
-nmap <leader>lT <plug>(vimtex-toc-toggle)
-nmap <leader>ly <plug>(vimtex-labels-open)
-nmap <leader>lY <plug>(vimtex-labels-toggle)
-nmap <leader>lv <plug>(vimtex-view)
-nmap <leader>lr <plug>(vimtex-reverse-search)
-nmap <leader>ll <plug>(vimtex-compile-toggle)
-nmap <leader>lL <plug>(vimtex-compile-selected)
-vmap <leader>lL <plug>(vimtex-compile-selected)
-nmap <leader>lk <plug>(vimtex-stop)
-nmap <leader>lK <plug>(vimtex-stop-all)
-nmap <leader>le <plug>(vimtex-errors)
-nmap <leader>lo <plug>(vimtex-compile-output)
-nmap <leader>lg <plug>(vimtex-status)
-nmap <leader>lG <plug>(vimtex-status-all)
-nmap <leader>lc <plug>(vimtex-clean)
-nmap <leader>lC <plug>(vimtex-clean-full)
-nmap <leader>lm <plug>(vimtex-imaps-list)
-nmap <leader>lx <plug>(vimtex-reload)
-nmap <leader>ls <plug>(vimtex-toggle-main)
-
-" Use Okular as a viewer, supports forward search:
-let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = '--unique'
-
-" Set the following in Okular for backward search:
-" Settings > Editor > Custom Text Editor: nvr --remote-silent %f -c %l
-
 " ALE ------------------------------------------------------------------------
 
-nmap <silent> ]l <Plug>(ale_next_wrap)
-nmap <silent> [l <Plug>(ale_previous_wrap)
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '!'
 hi link ALEErrorSign NeomakeErrorSign
