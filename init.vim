@@ -26,6 +26,7 @@ Plug 'tpope/vim-commentary'           " comment stuff out with gcc / gc<motion>
 Plug 'tpope/vim-surround'             " cs, ds, ys(s), v_S surroundings
 Plug 'tpope/vim-repeat'               " make repeat and surround repeatable
 Plug 'tpope/vim-vinegar'              " netrw improvements
+Plug 'tpope/vim-unimpaired'           " various bindings
 Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
 Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
 Plug 'jiangmiao/auto-pairs'           " brackets/ parens / quote pairs
@@ -36,6 +37,9 @@ Plug 'hynek/vim-python-pep8-indent'        " PEP8 conform indenting
 Plug 'HerringtonDarkholme/yats.vim'        " TypeScript Syntax
 Plug 'https://github.com/othree/html5.vim' " Html5 Syntax
 Plug 'https://github.com/othree/yajs.vim'  " JavaScript Syntax
+
+" Completion&Navigation
+Plug 'Valloric/YouCompleteMe'
 
 " Linting
 Plug 'w0rp/ale'                       " run async linters while editing
