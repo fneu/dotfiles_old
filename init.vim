@@ -165,11 +165,11 @@ set wildignore+=*.pyc                    " Python bytecode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " make cursor a pipe when in insert mode
 
 " stay in terminal mode by default
-" augroup terminal
-"     autocmd!
-"     autocmd BufWinEnter,WinEnter term://* startinsert
-"     autocmd BufLeave term://* stopinsert
-" augroup END
+augroup terminal
+    autocmd!
+    autocmd BufWinEnter,WinEnter term://* startinsert
+    autocmd BufLeave term://* stopinsert
+augroup END
 
 " -----------------------------------------------------------------------------
 " KEYMAPS
