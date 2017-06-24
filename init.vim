@@ -17,6 +17,7 @@ call plug#begin()
 
 " Visuals
 Plug 'fneu/breezy'                   " colorscheme
+Plug 'itchyny/lightline.vim'         " statusline
 
 " Tools
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -295,25 +296,25 @@ nnoremap <silent> <F4> :call CycleList("lprev", "llast")<CR>
 
 " LIGHTLINE ------------------------------------------------------------------
 
-" let g:lightline = {
-"     \ 'colorscheme': 'breezy',
-"     \ 'active': {
-"     \   'left': [ [ 'mode', 'paste' ],
-"     \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-"     \ },
-"     \ 'component': {
-"     \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
-"     \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-"     \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-"     \ },
-"     \ 'component_visible_condition': {
-"     \   'readonly': '(&filetype!="help"&& &readonly)',
-"     \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-"     \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-"     \ },
-"     \ 'separator': { 'left': '', 'right': '' },
-"     \ 'subseparator': { 'left': '', 'right': '' }
-"     \ }
+let g:lightline = {
+    \ 'colorscheme': 'breezy',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component': {
+    \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
+    \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+    \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+    \ },
+    \ 'component_visible_condition': {
+    \   'readonly': '(&filetype!="help"&& &readonly)',
+    \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+    \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' }
+    \ }
 
 " ALE ------------------------------------------------------------------------
 
