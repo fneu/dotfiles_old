@@ -17,6 +17,9 @@ export EDITOR=nvim
 export PATH=$PATH:/home/fabian/bin/ngrok
 #export TERM='rxvt-unicode'
 
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
 # eval "$(register-python-argcomplete coala)"
 
 # FZF {{{
