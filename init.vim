@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " Neovim configuration by Fabian Neuschmidt
-
+"
 " -----------------------------------------------------------------------------
 " PLUGINS
 " -----------------------------------------------------------------------------
@@ -215,6 +215,13 @@ nnoremap <leader>t <C-]>
 nnoremap <leader><S-t> <C-w>}
 
 " fzf.vim mappings to fuzzy search files or buffers
+"
+" FIX FOR 0.2.0
+augroup fzffix
+    autocmd!
+    autocmd TermOpen * set relativenumber
+augroup END
+
 nnoremap <leader>f :Files <CR>
 nnoremap <leader><S-f> :Files ~<CR>
 nnoremap <leader>b :Buffers<CR>
@@ -325,9 +332,15 @@ let g:lightline = {
 
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '!'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 hi link ALEErrorSign NeomakeErrorSign
 hi link ALEWarningSign NeomakeWarningSign
-
+let g:ale_linters = {
+            \ 'python': ['pylint', 'yapf', 'autopep8', 'isort']
+            \}
+let g:ale_fixers = {
+            \ 'python': ['yapf']
+            \}
 " CODI -----------------------------------------------------------------------
 
 " use Python3
