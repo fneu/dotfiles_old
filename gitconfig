@@ -3,7 +3,7 @@
     email = fabian@neuschmidt.de
 
 [core]
-    editor = nvim
+    editor = vim
 
 [alias]
     cam = commit --all --message
