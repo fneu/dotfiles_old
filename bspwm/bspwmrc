@@ -1,6 +1,47 @@
 #! /bin/sh
 
+#
+# TOOLS
+#
+
 # Keyboard shortcuts
 sxhkd &
 
-xterm &
+# Compositing, transparency, shadows
+compton &
+
+# Background
+feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/crashed_destroyer.jpg
+
+#
+# BSPWM
+#
+
+
+# Funciton needed because bspwm doesn't like monitor names with periods
+
+monitor_id_from_name() {
+	bspc wm -d | jq ".monitors[] | select(.name == \"$1\").id"
+}
+
+bspc monitor DP-4 -d I II III IV
+bspc monitor $(monitor_id_from_name DP-3.1) -d V VI VII
+bspc monitor $(monitor_id_from_name DP-3.2) -d VIII IX X
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config click_to_focus any
+bspc config focus_follows_pointer true
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle true
+
+#
+# RULES
+#
+
+#
+# AUTOSTART
+#
