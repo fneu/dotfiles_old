@@ -12,6 +12,7 @@
     ~/.config/sxhkd: sxhkd
     ~/.config/compton.conf: compton.conf
     ~/.profile: profile
+    ~/.face: face
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
