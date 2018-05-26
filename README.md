@@ -15,7 +15,7 @@ Section "Screen"
   Identifier "Default Screen"
   Device "Default Device"
   Monitor "Default Monitor"
-  Option "metamodes" "DP-4: nvidia-auto-select +0+0 {viewportin=1920x1080}, DP-3.1: nvidia-auto-select +1920+0, DP-3.2: nvidia-auto-select +3840+0"
+  Option "metamodes" "DP-4: nvidia-auto-select +0+0 {viewportin=1920x1080, ForceCompositionPipeline=On}, DP-3.1: nvidia-auto-select +1920+0 {ForceCompositionPipeline=On}, DP-3.2: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}"
 
 EndSection
 ```
