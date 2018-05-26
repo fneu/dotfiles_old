@@ -8,6 +8,8 @@
     ~/.gitconfig: gitconfig
     ~/.ctags: ctags
     ~/.Xresources: Xresources
+    ~/.config/bspwm: bspwm
+    ~/.config/sxhkd: sxhkd
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
