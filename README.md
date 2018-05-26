@@ -19,3 +19,23 @@ Section "Screen"
 
 EndSection
 ```
+
+### Scale lightdm on 4k screen
+
+Create '/etc/lightdm/lightdm.conf'
+
+```
+[SeatDefaults]
+greeter-setup-script=/etc/profile.d/lightdm.sh
+session-setup-script=/etc/profile.d/lightdm.sh
+```
+
+and the respective `/etc/profile.d/lightdm.sh`:
+
+```
+#! /bin/sh
+if [ ! -z "$DISPLAY" ]; then
+        /usr/bin/xrandr --output DP-4 --scale 0.5x0.5
+fi
+```
+Don't forget to `chmod +x` that one!
