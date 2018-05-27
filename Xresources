@@ -9,7 +9,10 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-! colors (https://github.com/chriskempson/base16-xresources/blob/master/xresources/base16-default-dark-256.Xresources)
+!
+! COLORS (https://github.com/chriskempson/base16-xresources/blob/master/xresources/base16-default-dark-256.Xresources)
+!
+
 #define base00 #181818
 #define base01 #282828
 #define base02 #383838
@@ -61,3 +64,45 @@ Xft.rgba: rgb
 *color19:      base02
 *color20:      base04
 *color21:      base06
+
+!
+!! URXVT
+!
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! scroll *inside* pagers like less
+! works okay for buttons, not mouse wheel though
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+! for mouse wheel: might not work on unpatched uxrvt
+URxvt.secondaryWheel: 1
+
+! font
+URxvt.font: xft:SourceCodePro:regular:size=11
+
+!Extentions for URLs and font size
+URxvt.perl-ext-common: default,matcher,font-size
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+URxvt.keysym.C-plus: perl:font-size:increase
+URxvt.keysym.C-minus: perl:font-size:decrease
+
+! remove scrollbar
+URxvt.scrollBar: false
+
+! padding
+URxvt.internalBorder: 4
+
+! copy and paste with <C-S-c> and <C-S-v>
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
