@@ -7,3 +7,6 @@ export QT_QPA_PLATFORMTHEME=gtk2
 # Don't switch off monitors completely
 # Needed because Displayport-using monitors never come back on again
 xset -dpms &
+
+# Add ruby gems to path
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
