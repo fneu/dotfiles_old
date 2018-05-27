@@ -39,3 +39,7 @@ if [ ! -z "$DISPLAY" ]; then
 fi
 ```
 Don't forget to `chmod +x` that one!
+
+### Install ruby gems
+
+By default openSUSE messes with the name of installed gems, Use `gem install --no-format-executable` to prevent that. Also, `--user-install` can be helpful to install to a directory in the user's home.
