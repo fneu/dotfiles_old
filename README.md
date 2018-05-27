@@ -43,3 +43,13 @@ Don't forget to `chmod +x` that one!
 ### Install ruby gems
 
 By default openSUSE messes with the name of installed gems, Use `gem install --no-format-executable` to prevent that. Also, `--user-install` can be helpful to install to a directory in the user's home.
+
+### Fixing Firefox right-click menu on bspwm:
+
+Apparently window borders fuck with the mouse positioning. This snipped in *userChrome* is a workaround:
+
+```
+#contentAreaContextMenu {
+    margin: 10px 0 0 10px
+}
+```
