@@ -13,6 +13,7 @@
     ~/.config/compton.conf: compton.conf
     ~/.profile: profile
     ~/.face: face
+    ~/.bashrc: bashrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
