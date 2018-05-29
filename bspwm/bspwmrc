@@ -11,7 +11,7 @@ sxhkd &
 compton &
 
 # Background
-feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/crashed_destroyer.jpg
+feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/triple_jet.png
 
 #
 # BSPWM

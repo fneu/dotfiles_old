@@ -28,7 +28,7 @@ endif
 call plug#begin()
 
 " Visuals
-Plug 'chriskempson/base16-vim'
+Plug 'dracula/vim'
 
 " Tools
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -56,10 +56,8 @@ Plug 'ludovicchabant/vim-gutentags'   " automatic tag management
 call plug#end()
 
 " colors/appearance     
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+set termguicolors
+colorscheme dracula
 set wildmenu
 
 nmap <space>f :Files<CR>
