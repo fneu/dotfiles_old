@@ -35,8 +35,9 @@ super + y
 	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
 # swap the current node and the biggest node
+# on the current monitor
 super + g
-	bspc node -s biggest
+	bspc node -s biggest.local
 
 #
 # state/flags
@@ -51,8 +52,12 @@ super + ctrl + {x,y,z}
 	bspc node -g {locked,sticky,private}
 
 #
-# focus/swap
+# focus/swap/rotate
 #
+
+# rotate active node (need to select with e.g. super+p)
+super + r
+        bspc node @parent -R 90
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
@@ -61,6 +66,11 @@ super + {_,shift + }{h,j,k,l}
 # focus the node for the given path jump
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
+
+# swap with brother
+super + shift + b
+        bspc node --swap @brother
+
 
 # focus the next/previous node in the current desktop
 super + {_,shift + }c
