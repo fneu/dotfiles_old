@@ -9,4 +9,5 @@ export QT_QPA_PLATFORMTHEME=gtk2
 xset -dpms &
 
 # Add ruby gems to path
-PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$HOME/.bin"
+
