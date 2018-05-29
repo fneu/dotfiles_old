@@ -53,3 +53,12 @@ Apparently window borders fuck with the mouse positioning. This snipped in *user
     margin: 10px 0 0 10px
 }
 ```
+
+### Shut up the sound card beeping
+
+Soundcard somehow beeps audibly when on powersave.
+Adding the following line to `/etc/modprobe.d/50-alsa.conf` shuts it up:
+
+```
+options snd-hda-intel power_save=0
+```
