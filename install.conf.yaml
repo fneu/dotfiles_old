@@ -19,6 +19,7 @@
       create: true
       path: global_gitignore
     ~/.config/base16-shell: base16-shell
+    ~/.bin: bin
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
