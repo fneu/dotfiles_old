@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	konsole
+	konsole -stylesheet ~/devel/dotfiles/konsole_style.css
 
 # program launcher
 super + @space
