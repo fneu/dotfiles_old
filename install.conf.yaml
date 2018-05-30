@@ -11,6 +11,7 @@
     ~/.config/bspwm: bspwm
     ~/.config/sxhkd: sxhkd
     ~/.config/compton.conf: compton.conf
+    ~/.config/dunst: dunst
     ~/.profile: profile
     ~/.face: face
     ~/.bashrc: bashrc
