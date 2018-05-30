@@ -52,6 +52,43 @@ function alert() {
     notify-send -i $icon "$last_cmd"
 }
 
+
+
+# FZF fuzzy file search
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# ls colors
+LS_COLORS="$LS_COLORS:ow=1;34;47:"
+alias ls='ls --color=auto --group-directories-first'
+
+#less
+export LESS='-MRi#8j.5'
+#             |||| `- center on search matches
+#             |||`--- scroll horizontally 8 columns at a time
+#             ||`---- case-insensitive search unless pattern contains uppercase
+#             |`----- parse color codes
+#             `------ show more information in promp
+
+# grep
+alias grep='grep --color --binary-files=without-match --exclude-dir .git'
+
+# git
+alias g='git'
+complete -o default -o nospace -F _git g
+. /usr/share/bash-completion/completions/git 2> /dev/null
+
+# vim
+alias v='vim'
+
+# alert
+# Show a desktop notification when a command finishes. Use like this:
+#   sleep 5; alert
+function alert() {
+    if [ $? = 0 ]; then icon=terminal; else icon=error; fi
+    last_cmd="$(history | tail -n1 | sed 's/^\s*[0-9]*\s*//' | sed 's/;\s*alert\s*$//')"
+    notify-send -i $icon "$last_cmd"
+}
+
 # simplified python virtual env mangling
 alias lsvenv='ls ~/.venv'
 alias unvenv='deactivate'
