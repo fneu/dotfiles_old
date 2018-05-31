@@ -12,6 +12,7 @@
     ~/.config/sxhkd: sxhkd
     ~/.config/compton.conf: compton.conf
     ~/.config/dunst: dunst
+    ~/.config/rofi: rofi
     ~/.profile: profile
     ~/.face: face
     ~/.bashrc: bashrc

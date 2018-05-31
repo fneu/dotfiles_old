@@ -6,9 +6,13 @@
 super + Return
 	konsole -stylesheet ~/devel/dotfiles/konsole_style.css
 
-# program launcher
-super + @space
-        dmenu_run -fn SourceCodePro:size=11 -nb \#44475a -nf \#f7f7f1 -sb \#bc92f8 -sf \#282a36
+# program launcher (prepend @ to fire on key up)
+super + space
+        rofi -show combi
+        # dmenu_run -fn SourceCodePro:size=11 -nb \#44475a -nf \#f7f7f1 -sb \#bc92f8 -sf \#282a36
+
+alt + Tab
+        rofi -show window
 
 # make sxhkd reload its configuration files:
 super + Escape
