@@ -28,7 +28,7 @@ endif
 call plug#begin()
 
 " Visuals
-Plug 'dracula/vim'
+Plug 'mhartington/oceanic-next'
 
 " Tools
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -56,8 +56,19 @@ Plug 'ludovicchabant/vim-gutentags'   " automatic tag management
 call plug#end()
 
 " colors/appearance     
-set termguicolors
-colorscheme dracula
+
+" for vim 7
+set t_Co=256
+
+" for vim 8
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+colorscheme OceanicNext
+
 set wildmenu
 
 nmap <space>f :Files<CR>

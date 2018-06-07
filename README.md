@@ -62,3 +62,11 @@ Adding the following line to `/etc/modprobe.d/50-alsa.conf` shuts it up:
 ```
 options snd-hda-intel power_save=0
 ```
+
+### feh crashing because of missing fonts
+
+Packaging bug, but whatever, just link stuff to where feh expects it:
+
+```
+sudo ln -s /usr/share/feh/ /usr/local/share
+```
