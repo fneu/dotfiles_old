@@ -16,6 +16,7 @@ set backspace=indent,eol,start
 set tabstop=8
 set expandtab
 set shiftwidth=4
+set softtabstop=4
 set autoindent
 set smartindent
 
@@ -40,6 +41,7 @@ Plug 'tpope/vim-repeat'               " make repeat and surround repeatable
 Plug 'tpope/vim-vinegar'              " netrw improvements
 Plug 'tpope/vim-unimpaired'           " various bindings
 Plug 'jiangmiao/auto-pairs'           " brackets/ parens / quote pairs
+let g:AutoPairsShortcutFastWrap = '<C-e>'
 
 " Languages
 Plug 'hynek/vim-python-pep8-indent'        " PEP8 conform indenting
