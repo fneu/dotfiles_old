@@ -14,7 +14,7 @@ parcellite -daemon &
 compton &
 
 # Background
-feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/vladstudio_pianist_5760x1200.jpg
+feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/isa_wald.png
 
 #
 # BSPWM
