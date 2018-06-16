@@ -74,11 +74,11 @@ colorscheme OceanicNext
 set wildmenu
 
 nmap <space>f :Files<CR>
-nnoremap <leader>g :Gstatus<CR>
-nnoremap <leader><S-f> :Files ~<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>t <C-]>
-nnoremap <leader><S-t> <C-w>}
+nnoremap <space>g :Gstatus<CR>
+nnoremap <space><S-f> :Files ~<CR>
+nnoremap <space>b :Buffers<CR>
+nnoremap <space>t <C-]>
+nnoremap <space><S-t> <C-w>}
 " Use <C-l> to clear the highlighting of :hlsearch
 nnoremap <silent> <C-l>
 \ :nohlsearch<C-r>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-l>
@@ -92,3 +92,5 @@ augroup fzf
 augroup END
 
 set mouse=a
+
+packadd! matchit
