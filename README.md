@@ -70,3 +70,12 @@ Packaging bug, but whatever, just link stuff to where feh expects it:
 ```
 sudo ln -s /usr/share/feh/ /usr/local/share
 ```
+
+### Fix kwin screen tearing on nvidia with triple buffering
+
+Create a file called `/etc/profile.d/kwin.sh` with the following:
+
+```
+#!/bin/sh
+export KWIN_TRIPLE_BUFFER=1
+```
