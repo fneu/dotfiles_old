@@ -79,3 +79,11 @@ Create a file called `/etc/profile.d/kwin.sh` with the following:
 #!/bin/sh
 export KWIN_TRIPLE_BUFFER=1
 ```
+
+### Firefox: prevent dark theme in web content
+
+Set any light theme for the widget content in `about:config`:
+
+```
+widget.content.gtk-theme-override | string | Adapta
+```
