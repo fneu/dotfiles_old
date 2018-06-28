@@ -21,7 +21,7 @@
       create: true
       path: global_gitignore
     ~/bin/colortest: bin/colortest
-    ~/bin/lock: bin/lock
+    ~/bin/powermenu: bin/powermenu
     ~/bin/msingle: bin/msingle
     ~/bin/mtriple: bin/mtriple
 

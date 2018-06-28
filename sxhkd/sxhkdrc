@@ -2,6 +2,10 @@
 # wm independent hotkeys
 #
 
+# power menu
+super + p
+        powermenu
+
 # terminal emulator
 super + Return
 	konsole -stylesheet ~/devel/dotfiles/konsole_style.css

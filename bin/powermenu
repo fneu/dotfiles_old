@@ -1,0 +1,16 @@
+#! /bin/bash
+
+action=$(echo -e "Sperren\nStandby\nHerunterfahren\nNeu starten" | rofi -dmenu)
+if [ "$action" == "Sperren" ]
+then
+dm-tool lock
+elif [ "$action" == "Standby" ]
+then
+systemctl suspend
+elif [ "$action" == "Herunterfahren" ]
+then
+systemctl poweroff
+elif [ "$action" == "Neu starten" ]
+then
+systemctl reboot
+fi
