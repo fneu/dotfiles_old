@@ -1,11 +1,7 @@
 #! /bin/sh
 
-#
-# TOOLS
-#
-
-# Keyboard shortcuts
-sxhkd &
+# Polkit authentication for giving privileges to applications
+lxsession &
 
 # Keep clipboard contents safe
 parcellite -daemon &
@@ -13,31 +9,31 @@ parcellite -daemon &
 # Compositing, transparency, shadows
 compton &
 
-# Background
-feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/isa_wald.png
+# cursor theme
+xsetroot -cursor_name left_ptr
 
-#
-# BSPWM
-#
+# Monitors
+if [ "$(bspc query -M | wc -l)" == 3 ]
+then
+    mtriple
+else
+    msingle
+fi
 
+# Don't switch off monitors completely
+# Needed because Displayport-using monitors never come back on again
+xset -dpms &
 
-# Funciton needed because bspwm doesn't like monitor names with periods
+# Keyboard shortcuts
+sxhkd &
 
-monitor_id_from_name() {
-	bspc wm -d | jq ".monitors[] | select(.name == \"$1\").id"
-}
-
-bspc monitor DP-4 -d I II III IV
-bspc monitor $(monitor_id_from_name DP-3.1) -d V VI VII
-bspc monitor $(monitor_id_from_name DP-3.2) -d VIII IX X
-
+# BSPWM options
 bspc config border_width         2
 bspc config window_gap          12
 bspc config normal_border_color \#343d46
 bspc config active_border_color \#343d46
 bspc config focused_border_color \#65737e
 bspc config presel_feedback_color \#65737e
-
 
 bspc config click_to_focus any
 bspc config focus_follows_pointer true
@@ -46,10 +42,10 @@ bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle true
 
-#
-# RULES
-#
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
 
-#
+# RULES
+
 # AUTOSTART
-#

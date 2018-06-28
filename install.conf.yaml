@@ -22,6 +22,8 @@
       path: global_gitignore
     ~/bin/colortest: bin/colortest
     ~/bin/lock: bin/lock
+    ~/bin/msingle: bin/msingle
+    ~/bin/mtriple: bin/mtriple
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
