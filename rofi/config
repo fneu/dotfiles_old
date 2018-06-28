@@ -1,5 +1,5 @@
 ! "Enabled modi" 
-rofi.modi:                           combi,window,run,drun
+rofi.modi:                           combi,window,drun,run
 ! "Window width" 
 rofi.width:                          25
 ! "Number of lines" 
@@ -63,7 +63,7 @@ rofi.run-shell-command:              {terminal} -e '{cmd}'
 ! "Parse known_hosts file for ssh mode" 
 ! rofi.parse-known-hosts:              true
 ! "Set the modi to combine in combi mode" 
-rofi.combi-modi:                     window,run
+rofi.combi-modi:                     window,drun,run
 ! "Set the matching algorithm. (normal, regex, glob, fuzzy)" 
 ! rofi.matching:                       normal
 ! "Tokenize input string" 
