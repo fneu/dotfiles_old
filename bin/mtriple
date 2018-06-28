@@ -1,6 +1,6 @@
 #! /bin/bash
 
-nvidia-settings --assign "CurrentMetaMode=DP-4: nvidia-auto-select @1920x1080 +0+720 {ViewPortIn=1920x1080, ViewPortOut=3840x2160+0+0}, DP-3.1: nvidia-auto-select +1920+0, DP-3.2: nvidia-auto-select +3840+0"
+nvidia-settings --assign "CurrentMetaMode=DP-4: nvidia-auto-select @1920x1080 +0+720 {ViewPortIn=1920x1080, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On}, DP-3.1: nvidia-auto-select +1920+0 {ForceCompositionPipeline=On}, DP-3.2: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}"
 
 # Funciton needed because bspwm doesn't like monitor names with periods
 
