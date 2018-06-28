@@ -11,5 +11,5 @@ export QT_STYLE_OVERRIDE=kvantum
 xset -dpms &
 
 # Add ruby gems to path
-PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$HOME/.bin"
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin"
 

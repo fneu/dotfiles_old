@@ -20,7 +20,8 @@
     ~/.config/git/ignore:
       create: true
       path: global_gitignore
-    ~/.bin: bin
+    ~/bin/colortest: bin/colortest
+    ~/bin/lock: bin/lock
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
