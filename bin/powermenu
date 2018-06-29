@@ -1,10 +1,10 @@
 #! /bin/bash
 
-action=$(echo -e "Sperren\nStandby\nHerunterfahren\nNeu starten" | rofi -dmenu)
+action=$(echo -e "Sperren\nEnergie sparen\nHerunterfahren\nNeu starten" | rofi -dmenu -p Verlassen -l 4 -i)
 if [ "$action" == "Sperren" ]
 then
 dm-tool lock
-elif [ "$action" == "Standby" ]
+elif [ "$action" == "Energie sparen" ]
 then
 systemctl suspend
 elif [ "$action" == "Herunterfahren" ]
