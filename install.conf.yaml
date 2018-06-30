@@ -17,6 +17,8 @@
     ~/.face: face
     ~/.bashrc: bashrc
     ~/.vimrc: vimrc
+    ~/.conkyrc: conkyrc
+    ~/.local/share/fonts/zekton: zekton-font
     ~/.config/git/ignore:
       create: true
       path: global_gitignore
