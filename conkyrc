@@ -87,13 +87,13 @@ ${goto 50}$battery_percent%${goto 100}$battery_bar
 
 ${color1}SYNC $hr
 
-${if_match "${exec kdeconnect-cli --list-available --name-only}"=="0 Gerät gefunden"}\
+${if_match "${execi 10 kdeconnect-cli --list-available --name-only}"=="0 Gerät gefunden"}\
 $color1${goto 16}${font FontAwesome:size=18}${font}${voffset -4}${goto 100}GETRENNT$color0\
 ${else}\
 $color0${goto 16}${font FontAwesome:size=18}${font}${voffset -4}${goto 100}\
-${exec kdeconnect-cli --list-available --name-only}\
+${execi 10 kdeconnect-cli --list-available --name-only}\
 ${endif}
-${font FontAwesome} ${font}${voffset -2}${goto 100}${exec insync get_status}
+${font FontAwesome} ${font}${voffset -2}${goto 100}${execi 30 insync get_status}
 
 ${color1}GitMate $hr
 

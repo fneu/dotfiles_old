@@ -4,8 +4,7 @@
 
 # power menu
 super + p
-    notify-send "test"
-        # powermenu
+        powermenu
 
 # terminal emulator
 super + Return
