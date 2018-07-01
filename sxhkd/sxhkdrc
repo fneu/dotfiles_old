@@ -4,7 +4,8 @@
 
 # power menu
 super + p
-        powermenu
+    notify-send "test"
+        # powermenu
 
 # terminal emulator
 super + Return
@@ -26,6 +27,14 @@ super + e
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+super + less
+    if xdotool search --onlyvisible --classname 'Conky' windowunmap; then \
+        bspc config -m DP-4 right_padding 0; \
+    else \
+        bspc config -m DP-4 right_padding 342; \
+        xdotool search --classname 'Conky' windowmap || conky &\
+    fi
 
 #
 # bspwm hotkeys

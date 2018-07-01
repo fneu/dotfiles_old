@@ -42,6 +42,7 @@ conky.config = {
     show_graph_scale = false,
     show_graph_range = false,
     stippled_borders = 0,
+    text_buffer_size = 1024,
     top_cpu_separate = true,
     update_interval = 1.0,
     uppercase = false,
@@ -75,7 +76,7 @@ ${goto 100}${execbar (pactl list sinks | grep 'Lautstärke: f')| awk '{print $5}
 $color0\
 
 ${font FontAwesome} ${font}${voffset -2}${goto 50}${exec xbacklight | cut -d '.' -f1}%\
-${goto 100}${execbar xbacklight | cut -d '.' -f1}%\
+${goto 100}${execbar xbacklight | cut -d '.' -f1}\
 
 ${if_match "${exec cat /sys/class/power_supply/AC/online}"=="1"}\
 ${font FontAwesome} ${font}${voffset -2} \
@@ -129,18 +130,18 @@ ${cpu cpu0}%${goto 100}${cpubar cpu1 10,100}${goto 214}${cpubar cpu5 10,100}
 ${goto 100}${cpubar cpu2 10,100}${goto 214}${cpubar cpu6 10,100}
 ${goto 100}${cpubar cpu3 10,100}${goto 214}${cpubar cpu7 10,100}
 ${goto 100}${cpubar cpu4 10,100}${goto 214}${cpubar cpu8 10,100}
-${goto 100}${top name 1}${top cpu 1}%
-${goto 100}${top name 2}${top cpu 2}%
-${goto 100}${top name 3}${top cpu 3}%
+${top pid 1}${goto 100}${top name 1}${top cpu 1}%
+${top pid 2}${goto 100}${top name 2}${top cpu 2}%
+${top pid 3}${goto 100}${top name 3}${top cpu 3}%
 
 ${color1}SPEICHER $hr$color0
 
 $mem${goto 100}${memgraph 80}
-${goto 100}${top_mem name 1}${top_mem mem 1}G
-${goto 100}${top_mem name 2}${top_mem mem 2}G
-${goto 100}${top_mem name 3}${top_mem mem 3}G
+${top_mem pid 1}${goto 100}${top_mem name 1}${top_mem mem 1}G
+${top_mem pid 2}${goto 100}${top_mem name 2}${top_mem mem 2}G
+${top_mem pid 3}${goto 100}${top_mem name 3}${top_mem mem 3}G
 
 ${color1}BSPWM $hr$color0
 
-${color2}TODO: BSPWM INTEGRATION
+${voffset +6}${alignc}${eval ${exec bspwmstate}}
 ]]

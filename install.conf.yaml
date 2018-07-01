@@ -26,6 +26,7 @@
     ~/bin/powermenu: bin/powermenu
     ~/bin/msingle: bin/msingle
     ~/bin/mtriple: bin/mtriple
+    ~/bin/bspwmstate: bin/bspwmstate
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

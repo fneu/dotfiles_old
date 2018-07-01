@@ -1,0 +1,47 @@
+#! /usr/bin/python3
+import subprocess
+state = subprocess.check_output(['bspc', 'wm', '-g']).decode("utf-8")
+conkystate = ""
+
+CI = "${font FontAwesome} ${font}${voffset -1} "
+EM = "${font FontAwesome} ${font}${voffset -1} "
+EX = "${font FontAwesome} ${font}${voffset -1} "
+
+WHITE = "${color0}"
+GREY = "${color1}"
+RED = "${color2}"
+
+for group in state.split(':'):
+    if group[0] in ('M', 'm'):
+        # monitor; add separator if not first group
+        if conkystate:
+            conkystate += GREY+'| '+WHITE
+    elif group[0] == 'O':
+        # occupied and focused
+        conkystate += CI
+    elif group[0] == 'o':
+        # occupied
+        conkystate += GREY + CI + WHITE
+    elif group[0] == 'F':
+        # free and focused
+        conkystate += EM
+    elif group[0] == 'f':
+        # free
+        conkystate += GREY + EM + WHITE
+    elif group[0] == 'U':
+        # urgent and focused
+        conkystate += EX
+    elif group[0] == 'u':
+        # urgent
+        conkystate += GREY + EX + WHITE
+
+# remove unwanted spaces 
+if conkystate[-1] == " ":
+    conkystate = conkystate[:-1]
+elif conkystate.endswith('${color0}'):
+    conkystate = conkystate[:-10]+conkystate[-9:]
+
+# alignment because alignc apparently doesn't work
+conkystate = " "*(2-conkystate.count('|'))+conkystate
+
+print(conkystate)
