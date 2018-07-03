@@ -27,6 +27,7 @@
     ~/bin/msingle: bin/msingle
     ~/bin/mtriple: bin/mtriple
     ~/bin/bspwmstate: bin/bspwmstate
+    ~/bin/lock: bin/lock
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

@@ -3,17 +3,17 @@
 action=$(echo -e "Sperren\nEnergie sparen\nHerunterfahren\nNeu starten\nWindows starten" | rofi -dmenu -p Verlassen -l 5 -i)
 if [ "$action" == "Sperren" ]
 then
-dm-tool lock
+    lock
 elif [ "$action" == "Energie sparen" ]
 then
-systemctl suspend
+    systemctl suspend
 elif [ "$action" == "Herunterfahren" ]
 then
-systemctl poweroff
+    systemctl poweroff
 elif [ "$action" == "Neu starten" ]
 then
-systemctl reboot
+    systemctl reboot
 elif [ "$action" == "Windows starten" ]
 then
-sudo grub2-reboot 2 && systemctl reboot
+    sudo grub2-reboot 2 && systemctl reboot
 fi
