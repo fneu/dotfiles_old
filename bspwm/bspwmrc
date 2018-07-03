@@ -3,9 +3,6 @@
 # Polkit authentication for giving privileges to applications
 lxsession &
 
-# Lock the session on suspend etc.:
-light-locker &
-
 # Keep clipboard contents safe
 parcellite -daemon &
 
