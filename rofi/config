@@ -111,14 +111,22 @@ rofi.hide-scrollbar:                 true
 !rofi.color-active:                   #282a36,#8ae8fc,#282a36,#44475a,#8ae8fc
 !! "Color scheme window" 
 !rofi.color-window:                   #282a36,#50f97b,#44475a,#ff0000,#ff0000,#ff0000
-!OCEANIC:
-rofi.color-normal:                   #1c2b34,#d8dee9,#1c2b34,#343d46,#d8dee9
+!!OCEANIC:
+!rofi.color-normal:                   #1c2b34,#d8dee9,#1c2b34,#343d46,#d8dee9
+!! "Color scheme for urgent row" 
+!rofi.color-urgent:                   #1c2b34,#ec5f67,#1c2b34,#343d46,#ec5f67
+!! "Color scheme for active row" 
+!rofi.color-active:                   #1c2b34,#6699cc,#1c2b34,#343d46,#6699cc
+!! "Color scheme window" 
+!rofi.color-window:                   #1c2b34,#a7adba,#343d46
+!VULCANIC:
+rofi.color-normal:                   #263238,#eceff1,#263238,#37474f,#eceff1
 ! "Color scheme for urgent row" 
-rofi.color-urgent:                   #1c2b34,#ec5f67,#1c2b34,#343d46,#ec5f67
+rofi.color-urgent:                   #263238,#e57373,#263238,#37474f,#e57373
 ! "Color scheme for active row" 
-rofi.color-active:                   #1c2b34,#6699cc,#1c2b34,#343d46,#6699cc
+rofi.color-active:                   #263238,#64b5f6,#263238,#37474f,#64b5f6
 ! "Color scheme window" 
-rofi.color-window:                   #1c2b34,#a7adba,#343d46
+rofi.color-window:                   #263238,#90a4ae,#37474f
 ! "Max history size (WARNING: can cause slowdowns when set to high)." 
 ! rofi.max-history-size:               25
 ! "Hide the prefix mode prefix on the combi view." 
