@@ -48,4 +48,12 @@ bspc config merge_overlapping_monitors true
 
 # RULES
 
-# AUTOSTART
+bspc rule -a Soffice state=tiled
+bspc rule -a TelegramDesktop desktop=II
+bspc rule -a keepassxc desktop=III
+
+
+# AUTOSTARTo
+
+telegram &
+keepassxc &
