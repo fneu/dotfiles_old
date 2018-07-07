@@ -29,7 +29,7 @@ endif
 call plug#begin()
 
 " Visuals
-Plug 'mhartington/oceanic-next'
+Plug 'fneu/adapted'
 
 " Tools
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -67,9 +67,9 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
+let g:adapted_terminal_bold = 1
+let g:adapted_terminal_italic = 1
+colorscheme adapted
 
 set wildmenu
 
