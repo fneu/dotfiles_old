@@ -5,7 +5,7 @@ conky.config = {
     border_width = 2,
     color0 = 'eceff1',
     color1 = '546e7a',
-    color2 = 'e57373',
+    color2 = 'ff0000',
     color3 = '81c784',
     color4 = '64b5f6',
     color5 = '4db6ac',
@@ -95,25 +95,25 @@ ${color1}GitMate $hr
 
 ${color0}\
 Prod:${goto 100}\
-${if_match "${execi 300 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://gitmate.io}"=="200"}Front: 200${color0}\
-${else}${color2}Front: ${execi 10 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://gitmate.io}\
+${if_match "${execi 300 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://gitmate.io}"=="200"}Front: 200${color0}\
+${else}${color2}Front: ${execi 10 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://gitmate.io}\
 ${endif}$color0${goto 200}/${goto 220}\
-${if_match "${execi 300 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://gitmate.io/api/}"=="200"}Back: 200${color0}\
-${else}${color2}Back: ${execi 10 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://gitmate.io/api/}\
+${if_match "${execi 300 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://gitmate.io/api/}"=="200"}Back: 200${color0}\
+${else}${color2}Back: ${execi 10 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://gitmate.io/api/}\
 ${endif}$color0
 RC:${goto 100}\
-${if_match "${execi 300 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://rc.gitmate.io}"=="200"}Front: 200${color0}\
-${else}${color2}Front: ${execi 10 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://rc.gitmate.io}\
+${if_match "${execi 300 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://rc.gitmate.io}"=="200"}Front: 200${color0}\
+${else}${color2}Front: ${execi 10 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://rc.gitmate.io}\
 ${endif}$color0${goto 200}/${goto 220}\
-${if_match "${execi 300 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://rc.gitmate.io/api/}"=="200"}Back: 200${color0}\
-${else}${color2}Back: ${execi 10 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://rc.gitmate.io/api/}\
+${if_match "${execi 300 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://rc.gitmate.io/api/}"=="200"}Back: 200${color0}\
+${else}${color2}Back: ${execi 10 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://rc.gitmate.io/api/}\
 ${endif}$color0
 Master:${goto 100}\
-${if_match "${execi 300 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://master.gitmate.io}"=="200"}Front: 200${color0}\
-${else}${color2}Front: ${execi 10 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://master.gitmate.io}\
+${if_match "${execi 300 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://master.gitmate.io}"=="200"}Front: 200${color0}\
+${else}${color2}Front: ${execi 10 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://master.gitmate.io}\
 ${endif}$color0${goto 200}/${goto 220}\
-${if_match "${execi 300 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://master.gitmate.io/api/}"=="200"}Back: 200${color0}\
-${else}${color2}Back: ${execi 10 curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://master.gitmate.io/api/}\
+${if_match "${execi 300 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://master.gitmate.io/api/}"=="200"}Back: 200${color0}\
+${else}${color2}Back: ${execi 10 timeout 3s curl -o /dev/null --silent --head --write-out '%{http_code}\n' https://master.gitmate.io/api/}\
 ${endif}$color0
 
 ${color1}PERFORMANCE $hr$color0
