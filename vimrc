@@ -29,12 +29,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
 endif
 
+:let mapleader = " "
+
 call plug#begin()
 
 " Visuals
 Plug 'fneu/adapted'
 
 " Tools
+Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'               " fzf integration for vim
 Plug 'tpope/vim-fugitive'             " git integration
@@ -186,4 +189,9 @@ let g:asyncomplete_remove_duplicates = 1
 " auto-close preview window after completion
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-
+" VIMWIKI
+let g:vimwiki_list = [{'path': '/mnt/daten/GDrive/vimwiki/wiki/',
+  \ 'path_html': '/mnt/daten/GDrive/vimwiki/html/',
+  \ 'syntax': 'markdown',
+  \ 'ext': '.md',
+  \ 'custom_wiki2html': '/home/fabian/devel/dotfiles/bin/wiki2html.sh'}]
