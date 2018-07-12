@@ -68,8 +68,8 @@ rofi.combi-modi:                     window,drun,run
 ! rofi.matching:                       normal
 ! "Tokenize input string" 
 ! rofi.tokenize:                       true
-! "Monitor id to show on" 
-! rofi.m:                              -5
+!"Monitor id to show on" 
+rofi.m:                              -1
 ! "Margin between rows *DEPRECATED*" 
 ! rofi.line-margin:                    2
 ! "Padding within rows *DEPRECATED*" 
