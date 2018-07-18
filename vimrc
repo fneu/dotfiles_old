@@ -33,7 +33,6 @@ Plug 'wincent/terminus'             " FocusGained and cursor shape in Konsole
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/emmet-vim'              " html magic with <C-y>
 Plug 'ap/vim-css-color'             " highlight colors in various file types
-Plug 'elzr/vim-json'                " prevents indentLine from hiding quotes
 Plug 'Yggdroot/indentLine'
 
 " languages
@@ -201,7 +200,7 @@ endif
 " PLUGIN SETTINGS
 
 " fzf
-"run fzf in current window
+"run fzf in current window -> DISABLED BECAUSE IT BREAKS ARROW KEYS
 " let g:fzf_layout = { 'window': 'enew' }
 " quit fzf with <esc>
 augroup fzf
@@ -294,6 +293,9 @@ nmap <silent> ]c <Plug>(ale_next_wrap)
 let g:indentLine_char = '│'
 let g:indentLine_faster = 1
 let g:indentLine_color_gui = '#37474f'
+" let indentLine use current conceal options
+" let g:indentLine_conceallevel  = &conceallevel -> disables conceal
+let g:indentLine_concealcursor = &concealcursor
 
 " vimwiki
 let g:vimwiki_list = [{'path': '/mnt/daten/GDrive/vimwiki/wiki/',
@@ -301,9 +303,6 @@ let g:vimwiki_list = [{'path': '/mnt/daten/GDrive/vimwiki/wiki/',
   \ 'syntax': 'markdown',
   \ 'ext': '.md',
   \ 'custom_wiki2html': '/home/fabian/devel/dotfiles/bin/wiki2html.sh'}]
-
-" vim-json
-let g:vim_json_syntax_conceal = 0
 
 " LANGUAGE SPECIFIC SETTINGS
 
