@@ -18,6 +18,7 @@
     ~/.bashrc: bashrc
     ~/.vimrc: vimrc
     ~/.conkyrc: conkyrc
+    ~/.htmlhintrc: htmlhintrc
     ~/.local/share/fonts/zekton: zekton-font
     ~/.config/git/ignore:
       create: true

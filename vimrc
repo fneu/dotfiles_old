@@ -33,6 +33,7 @@ Plug 'wincent/terminus'             " FocusGained and cursor shape in Konsole
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/emmet-vim'              " html magic with <C-y>
 Plug 'ap/vim-css-color'             " highlight colors in various file types
+Plug 'elzr/vim-json'                " prevents indentLine from hiding quotes
 Plug 'Yggdroot/indentLine'
 
 " languages
@@ -201,7 +202,7 @@ endif
 
 " fzf
 "run fzf in current window
-let g:fzf_layout = { 'window': 'enew' }
+" let g:fzf_layout = { 'window': 'enew' }
 " quit fzf with <esc>
 augroup fzf
     autocmd!
@@ -272,10 +273,12 @@ let g:echodoc_enable_at_startup = 1
 " ALE
 let g:ale_linters = {
         \ 'python': ['flake8'],
+        \ 'html': ['htmlhint'],
         \}
 let g:ale_fixers = {
         \ 'python': ['isort', 'yapf'],
         \}
+let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '❗'
 
@@ -299,6 +302,8 @@ let g:vimwiki_list = [{'path': '/mnt/daten/GDrive/vimwiki/wiki/',
   \ 'ext': '.md',
   \ 'custom_wiki2html': '/home/fabian/devel/dotfiles/bin/wiki2html.sh'}]
 
+" vim-json
+let g:vim_json_syntax_conceal = 0
 
 " LANGUAGE SPECIFIC SETTINGS
 
@@ -309,4 +314,5 @@ augroup languages
     autocmd FileType make setlocal noexpandtab
     autocmd Filetype html setlocal sts=2 sw=2 expandtab
     autocmd FileType python setlocal colorcolumn=79
+    autocmd FileType json setlocal sts=2 sw=2
 augroup END
