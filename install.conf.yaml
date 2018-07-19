@@ -24,7 +24,7 @@
       create: true
       path: global_gitignore
     ~/bin/colortest: bin/colortest
-    ~/bin/powermenu: bin/powermenu
+    ~/bin/powermenu.sh: bin/powermenu.sh
     ~/bin/msingle: bin/msingle
     ~/bin/mtriple: bin/mtriple
     ~/bin/bspwmstate: bin/bspwmstate
