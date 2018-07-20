@@ -135,26 +135,12 @@ let mapleader = " "
 " follow tags, help, etc.
 nnoremap <leader>t <C-]>
 
+" goto Definition
+nnoremap <leader>d :LspDefinition<CR>
+
 " center after search
 nnoremap n nzz
 nnoremap N Nzz
-
-" switch windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-
-" split window
-nnoremap <Leader>h :<C-u>split<CR>
-nnoremap <Leader>v :<C-u>vsplit<CR>
-
-" switch buffers
-nnoremap <leader>q :bp<CR>
-nnoremap <leader>w :bn<CR>
-
-" close buffer
-nnoremap <leader>c :<C-u>bd<CR>
 
 " use <C-l> to clear the highlighting of :hlsearch
 nnoremap <silent> <C-l>
