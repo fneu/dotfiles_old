@@ -50,6 +50,7 @@ bspc config merge_overlapping_monitors true
 
 bspc rule -a Soffice state=tiled
 bspc rule -a TelegramDesktop desktop=II
+bspc rule -a Mattermost desktop=II
 bspc rule -a keepassxc desktop=III
 
 
@@ -57,3 +58,4 @@ bspc rule -a keepassxc desktop=III
 
 telegram &
 keepassxc &
+mattermost &
