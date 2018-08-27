@@ -79,6 +79,16 @@ function alert() {
     notify-send -i $icon "$last_cmd"
 }
 
+# docker
+# add ppurge command
+docker() {
+    if [[ $@ == "purge" ]]; then
+        command docker rm $(docker ps -a -q) && docker rmi $(docker images -q)
+    else
+        command docker "$@"
+    fi
+}
+
 # simplified python virtual env mangling
 alias lsvenv='ls ~/.venv'
 alias unvenv='deactivate'
