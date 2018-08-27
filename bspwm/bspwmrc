@@ -53,6 +53,7 @@ bspc rule -a TelegramDesktop desktop=II
 bspc rule -a Mattermost desktop=II
 bspc rule -a keepassxc desktop=III
 
+bspc config external_rules_command "/home/fabian/bin/bspwm-external-rules.sh"
 
 # AUTOSTARTo
 

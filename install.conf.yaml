@@ -29,6 +29,7 @@
     ~/bin/mtriple: bin/mtriple
     ~/bin/bspwmstate: bin/bspwmstate
     ~/bin/lock: bin/lock
+    ~/bin/bspwm-external-rules.sh: bin/bspwm-external-rules.sh
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
