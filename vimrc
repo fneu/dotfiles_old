@@ -239,7 +239,6 @@ augroup asyncomplete
     autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
         \ 'name': 'buffer',
         \ 'whitelist': ['*'],
-        \ 'blacklist': ['python'],
         \ 'completor': function('asyncomplete#sources#buffer#completor'),
         \ }))
     " omni completion
@@ -298,7 +297,9 @@ augroup languages
     autocmd FileType make setlocal noexpandtab
     autocmd Filetype html setlocal sts=2 sw=2 expandtab
     autocmd FileType python setlocal colorcolumn=79
-    autocmd FileType json setlocal sts=2 sw=2
+    autocmd FileType json setlocal sts=2 sw=2 expandtab
+    autocmd FileType typescript setlocal sts=2 sw=2
+    autocmd FileType css setlocal sts=2 sw=2
 augroup END
 
 " STATUSLINE
