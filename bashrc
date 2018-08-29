@@ -89,6 +89,11 @@ docker() {
     fi
 }
 
+# make directory and go there
+mkcd() {
+    mkdir "$@" && cd "$@"
+}
+
 # simplified python virtual env mangling
 alias lsvenv='ls ~/.venv'
 alias unvenv='deactivate'
