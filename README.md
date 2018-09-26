@@ -2,6 +2,15 @@
 
 ## [openSUSE] configuration tips outside of per-user dotfiles:
 
+### Prevent SDDM scaling if it shouldn't
+
+create `/etc/sddm.conf.d/dpi.conf` with the following content:
+
+```
+[X11]
+ServerArguments=-dpi 96
+``` 
+
 ### Hide kernel warnings on tty after boot
 
 `sudo rm /usr/lib/systemd/system/getty@tty1.service.d/noclear.conf`
