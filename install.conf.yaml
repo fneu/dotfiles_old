@@ -9,26 +9,18 @@
     ~/.ctags: ctags
     ~/.Xresources: Xresources
     ~/.config/bspwm: bspwm
-    ~/.config/sxhkd: sxhkd
     ~/.config/compton.conf: compton.conf
-    ~/.config/dunst: dunst
-    ~/.config/rofi: rofi
     ~/.profile: profile
     ~/.face: face
     ~/.bashrc: bashrc
     ~/.vimrc: vimrc
-    ~/.conkyrc: conkyrc
     ~/.htmlhintrc: htmlhintrc
-    ~/.local/share/fonts/zekton: zekton-font
     ~/.config/git/ignore:
       create: true
       path: global_gitignore
     ~/bin/colortest: bin/colortest
-    ~/bin/powermenu.sh: bin/powermenu.sh
     ~/bin/msingle: bin/msingle
     ~/bin/mtriple: bin/mtriple
-    ~/bin/bspwmstate: bin/bspwmstate
-    ~/bin/lock: bin/lock
     ~/bin/bspwm-external-rules.sh: bin/bspwm-external-rules.sh
 
 - shell:
