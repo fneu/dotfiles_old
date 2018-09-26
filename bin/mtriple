@@ -1,7 +1,7 @@
 #! /bin/bash
 
 nvidia-settings --assign "CurrentMetaMode=DP-4: nvidia-auto-select @1920x1080 +0+720 {ViewPortIn=1920x1080, ViewPortOut=3840x2160+0+0, ForceCompositionPipeline=On}, DP-3.1: nvidia-auto-select +1920+0 {ForceCompositionPipeline=On}, DP-3.2: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On}"
-nvidia-settings --assign "nvidiaXineramaInfoOrder=DP-4" 
+# nvidia-settings --assign "nvidiaXineramaInfoOrder=DP-4" 
 
 # Funciton needed because bspwm doesn't like monitor names with periods
 
@@ -13,4 +13,4 @@ bspc monitor DP-4 -d I II III IV
 bspc monitor $(monitor_id_from_name DP-3.1) -d V VI VII
 bspc monitor $(monitor_id_from_name DP-3.2) -d VIII IX X
 
-feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/isa_wald.png
+# feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/isa_wald.png

@@ -8,8 +8,6 @@
     ~/.gitconfig: gitconfig
     ~/.ctags: ctags
     ~/.Xresources: Xresources
-    ~/.config/bspwm: bspwm
-    ~/.config/compton.conf: compton.conf
     ~/.profile: profile
     ~/.face: face
     ~/.bashrc: bashrc
@@ -21,7 +19,6 @@
     ~/bin/colortest: bin/colortest
     ~/bin/msingle: bin/msingle
     ~/bin/mtriple: bin/mtriple
-    ~/bin/bspwm-external-rules.sh: bin/bspwm-external-rules.sh
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
