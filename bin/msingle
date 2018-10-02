@@ -5,3 +5,9 @@ nvidia-settings --assign "CurrentMetaMode=DP-4: nvidia-auto-select @1920x1080 +0
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 # feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/isa_wald_left.png
+
+# restart all of plasma
+sleep 2
+killall plasmashell && plasmashell &
+killall latte-dock && latte-dock &
+killall krunner && krunner &

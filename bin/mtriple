@@ -14,3 +14,9 @@ bspc monitor $(monitor_id_from_name DP-3.1) -d V VI VII
 bspc monitor $(monitor_id_from_name DP-3.2) -d VIII IX X
 
 # feh --no-fehbg --no-xinerama --bg-fill /mnt/daten/Bilder/Wallpapers/isa_wald.png
+
+# restart all of plasma
+sleep 2
+killall plasmashell && plasmashell &
+killall latte-dock && latte-dock &
+killall krunner && krunner &
