@@ -125,7 +125,8 @@ endif
 let g:adapted_terminal_bold = 1
 let g:adapted_terminal_italic = 1
 if !exists('g:first_use')
-    colorscheme adapted
+    " colorscheme adapted
+    colorscheme github
 endif
 
 " MAPPINGS
@@ -276,7 +277,7 @@ nmap <silent> ]c <Plug>(ale_next_wrap)
 " indentLine:
 let g:indentLine_char = '│'
 let g:indentLine_faster = 1
-let g:indentLine_color_gui = '#37474f'
+let g:indentLine_color_gui = '#ddddc5'
 " let indentLine use current conceal options
 " let g:indentLine_conceallevel  = &conceallevel -> disables conceal
 let g:indentLine_concealcursor = &concealcursor

@@ -140,9 +140,9 @@ virtualenv_info() {
 
 # custom git prompt
 git_info() {
-    local DIRTY="\[\033[0;33m\]"
+    local DIRTY="\[\033[0;31m\]"
     local CLEAN="\[\033[0;32m\]"
-    local UNMERGED="\[\033[0;31m\]"
+    local UNMERGED="\[\033[0;33m\]"
     git rev-parse --git-dir >& /dev/null
     if [[ $? == 0 ]]; then
         echo -n " "
@@ -170,7 +170,8 @@ git_info() {
 #PS1='[\u@\h \W]\$ '
 
 set_bash_prompt(){
-	PS1="$(virtualenv_info)\[\033[1;35m\]\u\[\033[0m\]@\[\033[1;34m\]\H\[\033[0m\]:\[\033[1;36m\]\w\[\033[0m\]$(git_info)> "
+	# PS1="$(virtualenv_info)\[\033[1;35m\]\u\[\033[0m\]@\[\033[1;34m\]\H\[\033[0m\]:\[\033[1;36m\]\w\[\033[0m\]$(git_info)> "
+	PS1="$(virtualenv_info)\[\033[0;35m\]\u\[\033[0m\]@\[\033[0;34m\]\H\[\033[0m\]:\[\033[0;36m\]\w\[\033[0m\]$(git_info)> "
 }
 
 PROMPT_COMMAND=set_bash_prompt
