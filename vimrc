@@ -183,6 +183,9 @@ if executable('rg')
     nnoremap <silent> <leader><S-f> :Find<CR>
 endif
 
+"put date
+nnoremap <leader>z A,<esc>"=strftime("%c")<CR>P
+
 " PLUGIN SETTINGS
 
 " fzf
@@ -301,6 +304,7 @@ augroup languages
     autocmd FileType json setlocal sts=2 sw=2 expandtab
     autocmd FileType typescript setlocal sts=2 sw=2
     autocmd FileType css setlocal sts=2 sw=2
+    autocmd FileType vimwiki setlocal number
 augroup END
 
 " STATUSLINE
